@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 11:46:48 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/24 11:51:33 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ typedef struct s_data
 }   t_data;
 
 
-/* TOKENIZER */
+/*  TOKENIZER  */
 int validate_token_syntax(t_data *data);
 void assign_token_type_ext(t_dlist *temp);
 void assign_token_types(t_dlist **tokens);
@@ -77,14 +77,14 @@ int is_redirection_token(t_dlist *node);
 int has_command_before_pipe(t_dlist *node);
 
 
-/* UTILS */
+/*  UTILS  */
 char	*ms_substr(char const *s, unsigned int start, size_t len, t_data *data);
 
-/* ERROR */
+/*  ERROR  */
 void	ms_perror(t_data *data);
 int     error(char *str, char *token, t_data *data);
 
-/* FREE MEMORY*/
+/*  FREE MEMORY */
 void	free_all(t_data *data);
 void	check_memory_failure(t_data *data, void *ptr, char **dptr, int f);
 void	freelist(t_dlist *list);
