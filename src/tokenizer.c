@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:35:22 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 11:11:02 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/24 11:13:30 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,28 @@ void assign_token_type_ext(t_dlist *temp)
         temp->token = FILENAME;
     else
         temp->token = UNKNOWN;
+}
+
+void assign_token_types(t_dlist **tokens)
+{
+    t_dlist *temp = *tokens;
+
+    while (temp)
+    {
+        if (!ft_strncmp(temp->str, "|", 2))
+            temp->token = PIPE;
+        else if (!ft_strncmp(temp->str, ">", 2))
+            temp->token = OUTF;
+        else if (!ft_strncmp(temp->str, "<", 2))
+            temp->token = INF;
+        else if (!ft_strncmp(temp->str, "<<", 3))
+            temp->token = HERE_DOC;
+        else if (!ft_strncmp(temp->str, ">>", 3))
+            temp->token = OUTF_APD;
+        else if (temp->prev && temp->prev->token == HERE_DOC)
+            temp->token = LIMITER;
+        else
+            assign_token_type_ext(temp);
+        temp = temp->next;
+    }
 }
