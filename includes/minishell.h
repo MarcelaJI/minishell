@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 11:01:36 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/24 11:11:53 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,5 +69,6 @@ typedef struct s_data
 
 /* TOKENIZER */
 int validate_token_syntax(t_data *data);
+void assign_token_type_ext(t_dlist *temp);
 
 #endif

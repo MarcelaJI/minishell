@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:35:22 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 11:00:38 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/24 11:11:02 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int validate_token_syntax(t_data *data)
 {
-    t_dlist *temp = data->tokens;
+    t_dlist *temp;
+
+    temp = data->tokens;
 
     while (temp)
     {
@@ -31,5 +33,20 @@ int validate_token_syntax(t_data *data)
             return error("unrecognized token: ", temp->str, data);
         temp = temp->next;
     }
-    return 0;
+    return (0);
+}
+
+void assign_token_type_ext(t_dlist *temp)
+{
+    if ((temp->index == 0) ||
+        (temp->prev && temp->prev->token == PIPE) ||
+        (temp->prev && !has_command_before_pipe(temp) && (temp->prev->token == FILENAME || temp->prev->token == LIMITER)))
+        temp->token = CMD;
+    else if (temp->prev && has_command_before_pipe(temp) && !is_redirection_token(temp->prev) &&
+            (temp->prev->token == FILENAME || temp->prev->token == CMD || temp->prev->token == LIMITER || temp->prev->token == PARAM))
+        temp->token = PARAM;
+    else if (temp->prev && is_redirection_token(temp->prev))
+        temp->token = FILENAME;
+    else
+        temp->token = UNKNOWN;
 }
