@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 11:42:33 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 11:45:14 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/24 11:46:40 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,19 @@ int is_redirection_token(t_dlist *node)
         return 0;
     if (node->token == INF || node->token == OUTF || node->token == OUTF_APD)
         return 1;
+    return 0;
+}
+
+int has_command_before_pipe(t_dlist *node)
+{
+    node = node->prev;
+    if (node->token == PIPE)
+        return 0;
+    while (node && node->token != PIPE)
+    {
+        if (node->token == CMD)
+            return 1;
+        node = node->prev;
+    }
     return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 11:45:39 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/24 11:46:48 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void assign_token_types(t_dlist **tokens);
 void tokenize_input_string(char *input, t_data *data);
 int is_valid_token_char(char c);
 int is_redirection_token(t_dlist *node);
+int has_command_before_pipe(t_dlist *node);
 
 
 /* UTILS */
