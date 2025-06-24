@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:35:22 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 11:13:30 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/24 11:15:55 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,4 +73,30 @@ void assign_token_types(t_dlist **tokens)
             assign_token_type_ext(temp);
         temp = temp->next;
     }
+}
+
+char *extract_next_word(char *input, size_t *i, t_data *data)
+{
+    size_t j = 0;
+    char q;
+
+    while (input[j] && is_whitespace(input[j]))
+    {
+        input++;
+        (*i)++;
+    }
+    if (!input[j])
+        return NULL;
+    while (input[j] && !is_whitespace(input[j]))
+    {
+        if (input[j] == '\'' || input[j] == '\"')
+        {
+            q = input[j++];
+            while (input[j] != q)
+                j++;
+        }
+        if (input[j])
+            j++;
+    }
+    return (ms_substr(input, 0, j, data));
 }

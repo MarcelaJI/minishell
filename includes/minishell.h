@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 11:14:00 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/24 11:18:53 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,9 @@ typedef struct s_data
 int validate_token_syntax(t_data *data);
 void assign_token_type_ext(t_dlist *temp);
 void assign_token_types(t_dlist **tokens);
+
+
+/* UTILS */
+char	*ms_substr(char const *s, unsigned int start, size_t len, t_data *data);
 
 #endif
