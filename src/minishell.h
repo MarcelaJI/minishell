@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 12:17:09 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/24 13:12:06 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ typedef struct s_dlist
 typedef struct s_data
 {
     t_dlist	*tokens;
+	char	*input;
+	int		exit_status;
 }   t_data;
 
 
@@ -75,6 +77,19 @@ void tokenize_input_string(char *input, t_data *data);
 int is_valid_token_char(char c);
 int is_redirection_token(t_dlist *node);
 int has_command_before_pipe(t_dlist *node);
+
+/* PARSER */
+int	check_quotes(char *input);
+void	expand_all_tokens(t_data *data);
+int	check_empty_input(char *input);
+int	parse_input(t_data *data);
+int	check_valid_char(int c);
+int	check_redir(char *c);
+int	is_whitespace(char c);
+int	checkfornum(char *s);
+int	cmp_up_to_equal(const char *s1, const char *s2);
+void	copy_full_word(char *input, char *str, size_t *a, size_t *b);
+char	*fix_input(char *input, t_data *data);
 
 /*  QUOTES  */
 void	update_double_quote_flag(char *str, int *dquote, int *squote, size_t *i);
