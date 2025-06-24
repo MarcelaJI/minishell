@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:35:22 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 12:18:24 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/24 14:37:02 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int validate_token_syntax(t_data *data)
     {
         if ((is_redirection_token(temp) || temp->token == HERE_DOC) && !temp->next)
             return (error("syntax error near unexpected token: ", "\'newline\'", data));
-        if (((temp->index == 0 || temp->index == listSize(data->tokens) - 1) && (temp->token == PIPE)) ||
+        if (((temp->index == 0 || temp->index == listsize(data->tokens) - 1) && (temp->token == PIPE)) ||
             (temp->token == PIPE && temp->next && temp->next->token == PIPE) ||
             (is_redirection_token(temp) && is_redirection_token(temp->next)) ||
             (temp->token == HERE_DOC && temp->next && temp->next->token == HERE_DOC) ||

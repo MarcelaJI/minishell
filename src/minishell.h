@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 13:12:06 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/24 14:35:30 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,8 +98,16 @@ void	skip_quoted_single_block(char *str, int *dquote, int *squote, size_t *i);
 char	*strip_quotes_from_string(char *str, t_data *data);
 void	strip_all_token_quotes(t_data *data);
 
-/*  UTILS  */
+/*  UTILS  LISTS */
 char	*ms_substr(char const *s, unsigned int start, size_t len, t_data *data);
+t_dlist	*newnode(char *str);
+void	node_addfront(t_dlist **list, t_dlist *node);
+void	node_addback(t_dlist **list, t_dlist *new);
+t_dlist	*skip_instructions(t_dlist *node, int n);
+void	freelist(t_dlist *list);
+void	refreshindex(t_dlist **list);
+int	listsize(t_dlist *list);
+t_dlist	*lastnode(t_dlist *list);
 
 /*  ERROR  */
 void	ms_perror(t_data *data);
