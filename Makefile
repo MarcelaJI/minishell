@@ -6,7 +6,7 @@
 #    By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 11:06:40 by ingjimen          #+#    #+#              #
-#    Updated: 2025/06/24 14:35:58 by ingjimen         ###   ########.fr        #
+#    Updated: 2025/06/24 14:40:14 by ingjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ INC = src/minishell.h -Ilibft/includes
 
 SRC = src/main.c src/parsing/tokenizer.c src/parsing/tokenizer_utils.c \
 		src/parsing/parsing.c src/parsing_utils.c src/parsing/fix_input.c \
-		src/utils.c src/error.c src/list_utils.c src/list_utils_2.c  \
+		src/utils/utils.c src/utils/error.c src/utils/list_utils.c src/utils/list_utils_2.c  \
 		
 OBJ = $(SRC:.c=.o)
 
