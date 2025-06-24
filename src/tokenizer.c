@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:35:22 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 11:15:55 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/24 11:33:18 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,4 +99,23 @@ char *extract_next_word(char *input, size_t *i, t_data *data)
             j++;
     }
     return (ms_substr(input, 0, j, data));
+}
+
+void tokenize_input_string(char *input, t_data *data)
+{
+    char *word;
+    size_t i = 0;
+    t_dlist *temp;
+
+    while (1)
+    {
+        word = extract_next_word(input + i, &i, data);
+        if (!word)
+            break;
+        temp = newnode(word);
+        check_memory_failure(data, temp, NULL, 1);
+        node_addback(&data->tokens, temp);
+        i += ft_strlen(word);
+    }
+    assign_token_types(&data->tokens);
 }
