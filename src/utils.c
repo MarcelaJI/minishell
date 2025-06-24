@@ -6,11 +6,11 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 11:17:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 11:29:57 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/24 12:13:45 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "minishell.h"
 
 char	*ms_substr(char const *s, unsigned int start, size_t len, t_data *data)
 {

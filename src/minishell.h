@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 11:51:33 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/24 12:17:09 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,12 @@ int is_valid_token_char(char c);
 int is_redirection_token(t_dlist *node);
 int has_command_before_pipe(t_dlist *node);
 
+/*  QUOTES  */
+void	update_double_quote_flag(char *str, int *dquote, int *squote, size_t *i);
+void	update_single_quote_flag(char *str, int *squote, int *dquote, size_t *i);
+void	skip_quoted_single_block(char *str, int *dquote, int *squote, size_t *i);
+char	*strip_quotes_from_string(char *str, t_data *data);
+void	strip_all_token_quotes(t_data *data);
 
 /*  UTILS  */
 char	*ms_substr(char const *s, unsigned int start, size_t len, t_data *data);

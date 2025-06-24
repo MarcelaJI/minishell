@@ -6,7 +6,7 @@
 #    By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 11:06:40 by ingjimen          #+#    #+#              #
-#    Updated: 2025/06/24 12:05:40 by ingjimen         ###   ########.fr        #
+#    Updated: 2025/06/24 12:16:07 by ingjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,10 +14,10 @@ NAME = minishell
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-INC = -Iincludes -Ilibft/includes
+INC = src/minishell.h -Ilibft/includes
 
 SRC = main.c src/parsing/tokenizer.c src/parsing/tokenizer_utils.c \
-		src/utils.c src/error.c \
+		src/utils.c src/error.c  \
 		
 OBJ = $(SRC:.c=.o)
 

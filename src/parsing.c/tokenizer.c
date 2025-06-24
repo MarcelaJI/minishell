@@ -6,11 +6,11 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:35:22 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 11:41:13 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/24 12:18:24 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "../minishell.h"
 
 int validate_token_syntax(t_data *data)
 {
@@ -28,9 +28,9 @@ int validate_token_syntax(t_data *data)
             (temp->token == HERE_DOC && temp->next && temp->next->token == HERE_DOC) ||
             (temp->token == HERE_DOC && temp->next && temp->next->token != LIMITER) ||
             ((is_redirection_token(temp) || temp->token == HERE_DOC) && temp->next && temp->next->token == PIPE))
-            return error("syntax error near unexpected token: ", temp->str, data);
+            return (error("syntax error near unexpected token: ", temp->str, data));
         if (temp->token == UNKNOWN)
-            return error("unrecognized token: ", temp->str, data);
+            return (error("unrecognized token: ", temp->str, data));
         temp = temp->next;
     }
     return (0);
@@ -86,7 +86,7 @@ char *extract_next_word(char *input, size_t *i, t_data *data)
         (*i)++;
     }
     if (!input[j])
-        return NULL;
+        return (NULL);
     while (input[j] && !is_whitespace(input[j]))
     {
         if (input[j] == '\'' || input[j] == '\"')

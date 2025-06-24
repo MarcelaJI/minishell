@@ -6,11 +6,11 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 11:42:33 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 12:06:44 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/24 12:14:12 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/minishell.h"
+#include "../minishell.h"
 
 int is_valid_token_char(char c)
 {
