@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 11:18:53 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/24 11:32:06 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,15 @@ void assign_token_types(t_dlist **tokens);
 
 /* UTILS */
 char	*ms_substr(char const *s, unsigned int start, size_t len, t_data *data);
+
+/* ERROR */
+void	ms_perror(t_data *data);
+int     error(char *str, char *token, t_data *data);
+
+/* FREE MEMORY*/
+void	free_all(t_data *data);
+void	check_memory_failure(t_data *data, void *ptr, char **dptr, int f);
+void	freelist(t_dlist *list);
+
 
 #endif

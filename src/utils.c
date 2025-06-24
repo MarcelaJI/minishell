@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 11:17:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 11:18:20 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/24 11:29:57 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,25 @@ char	*ms_substr(char const *s, unsigned int start, size_t len, t_data *data)
 	}
 	sub[i] = '\0';
 	return (sub);
+}
+
+void	free_all(t_data *data)
+{
+    if (data->tokens)
+		freelist(data->tokens);
+}
+
+
+void	freelist(t_dlist *list)
+{
+	t_dlist	*temp;
+
+	while (list)
+	{
+		if (list->str)
+			free(list->str);
+		temp = list;
+		list = list->next;
+		free(temp);
+	}
 }
