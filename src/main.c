@@ -71,7 +71,7 @@ int main(int argc, char **argv, char **envp)
             break;
         if (check_empty_input(line))
         {
-            free(line);  // Aquí sí libero porque no pasó por fix_input
+            free(line);
             continue;
         }
         if (check_quotes(line))
@@ -81,12 +81,12 @@ int main(int argc, char **argv, char **envp)
             continue;
         }
 
-        data.input = fix_input(line, &data); // fix_input libera 'line' internamente
+        data.input = fix_input(line, &data);
 
         tokenize_input_string(data.input, &data);
-        assign_token_indexes(data.tokens);
-        strip_all_token_quotes(&data);
         expand_all_tokens(&data);
+        strip_all_token_quotes(&data);
+        assign_token_indexes(data.tokens);
         if (!validate_token_syntax(&data))
             print_tokens(data.tokens);
         else
