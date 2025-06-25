@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 11:17:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 13:04:37 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/25 08:49:34 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,34 @@ void	free_all(t_data *data)
 {
     if (data->tokens)
 		freelist(data->tokens);
+}
+
+void	free_str_array(char **arr, size_t n)
+{
+	size_t	i;
+
+	i = 0;
+	if (!arr)
+		return ;
+	if (!n)
+	{
+		while (arr[i])
+		{
+			if (arr[i])
+				free(arr[i]);
+			i++;
+		}
+	}
+	else if (n)
+	{
+		while (i < n)
+		{
+			if (arr[i])
+				free(arr[i]);
+			i++;
+		}
+	}
+	free(arr);
 }
 
 

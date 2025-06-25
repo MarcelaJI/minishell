@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 12:32:32 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 13:19:06 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/25 09:02:19 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ int	check_empty_input(char *input)
 	return (0);
 }
 
-/*
 int	parse_input(t_data *data)
 {
 	if (check_empty_input(data->input))
@@ -78,8 +77,6 @@ int	parse_input(t_data *data)
 	}
 	expand_all_tokens(data);
 	strip_all_token_quotes(data);
-	convert_tokens(data); -> parte de la ejecución esperando a Imma
+	//convert_tokens(data); // -> parte de la ejecución esperando a Imma
 	return (0);
 }
-
-*/
