@@ -6,7 +6,7 @@
 #    By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 11:06:40 by ingjimen          #+#    #+#              #
-#    Updated: 2025/06/25 09:04:08 by ingjimen         ###   ########.fr        #
+#    Updated: 2025/06/25 09:24:33 by ingjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,8 +17,8 @@ CFLAGS = -Wall -Wextra -Werror
 INC = src/minishell.h -Ilibft/includes
 
 SRC = src/main.c src/parsing/tokenizer.c src/parsing/tokenizer_utils.c \
-		src/parsing/parsing.c src/parsing_utils.c src/parsing/fix_input.c \
-		src/parsing/env.c src/parsing/env_utils.c src/env_vars_utils.c \
+		src/parsing/parsing.c src/parsing/parsing_utils.c src/parsing/fix_input.c \
+		src/parsing/env.c src/parsing/env_utils.c src/parsing/env_vars_utils.c \
 		src/utils/utils.c src/utils/error.c src/utils/list_utils.c src/utils/list_utils_2.c  \
 		
 OBJ = $(SRC:.c=.o)

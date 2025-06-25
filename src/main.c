@@ -1,52 +1,105 @@
 #include "minishell.h"
 
 
-// Asigna índices a los tokens
-void assign_token_indexes(t_dlist *tokens)
+// Asigna índice incremental a cada token
+void	assign_token_indexes(t_dlist *tokens)
 {
-    int i = 0;
-    while (tokens)
-    {
-        tokens->index = i++;
-        tokens = tokens->next;
-    }
+	int	i = 0;
+	while (tokens)
+	{
+		tokens->index = i++;
+		tokens = tokens->next;
+	}
 }
 
-// Imprime los tokens para depuración
-void print_tokens(t_data *data)
+// Traduce tipo de token a string (debug)
+const char *token_type_to_str(enum e_type type)
 {
-    t_dlist *tmp = data->tokens;
-    while (tmp)
-    {
-        printf("Token: %-15s | Type: %d | Index: %d\n", tmp->str, tmp->token, tmp->index);
-        tmp = tmp->next;
-    }
+	switch (type)
+	{
+		case CMD: return "CMD";
+		case PARAM: return "PARAM";
+		case PIPE: return "PIPE";
+		case FILENAME: return "FILENAME";
+		case INF: return "INF";
+		case OUTF: return "OUTF";
+		case OUTF_APD: return "OUTF_APD";
+		case HERE_DOC: return "HERE_DOC";
+		case LIMITER: return "LIMITER";
+		case UNKNOWN: return "UNKNOWN";
+		default: return "NA";
+	}
 }
 
-int main(void)
+// Imprime todos los tokens con detalles
+void	print_tokens(t_dlist *tokens)
 {
-    char *input;
-    t_data data;
+	while (tokens)
+	{
+		printf(GREEN "Token[%d]: " RESET "\"%s\" \tType: %s\n",
+			tokens->index, tokens->str, token_type_to_str(tokens->token));
+		tokens = tokens->next;
+	}
+}
 
-    while (1)
-    {
-        data.tokens = NULL;
-        input = readline("[shellmi] ");
-        if (!input)
-            break;
-        if (*input)
-            add_history(input);
+// Carga el entorno del sistema en t_data->env como lista enlazada
+void	load_env(char **envp, t_data *data)
+{
+	int		i = 0;
+	t_dlist	*node;
 
-        // Fase de tokenización y análisis
-        tokenize_input_string(input, &data);
-        assign_token_indexes(data.tokens);
-        strip_all_token_quotes(&data); // eliminar comillas después de tokenizar
+	while (envp[i])
+	{
+		node = newnode(ft_strdup(envp[i]));
+		if (!node)
+			check_memory_failure(data, node, NULL, 1);
+		node_addback(&data->env, node);
+		i++;
+	}
+}
 
-        if (validate_token_syntax(&data) == 0)
-            print_tokens(&data); // muestra tokens solo si no hay error
+int	main(int argc, char **argv, char **envp)
+{
+	t_data	data;
+	char	*line;
 
-        free_all(&data);
-        free(input);
-    }
-    return 0;
+	(void)argc;
+	(void)argv;
+	ft_bzero(&data, sizeof(t_data));
+	load_env(envp, &data);
+
+	while (1)
+	{
+		data.tokens = NULL;
+		line = readline(SHELLPRMPT);
+		if (!line)
+			break;
+		if (check_empty_input(line))
+		{
+			free(line);
+			continue;
+		}
+		if (check_quotes(line))
+		{
+			printf(RED "Syntax error: unclosed quote\n" RESET);
+			free(line);
+			continue;
+		}
+
+		data.input = fix_input(line, &data); // normaliza espacios y otras cosas
+		tokenize_input_string(data.input, &data);
+		assign_token_indexes(data.tokens);
+		strip_all_token_quotes(&data);
+		expand_all_tokens(&data); // expansión de $VAR
+		if (!validate_token_syntax(&data))
+			print_tokens(data.tokens);
+		else
+			data.exit_status = 258;
+
+		free_all(&data);
+		free(line);
+	}
+
+	printf("\nBye!\n");
+	return (data.exit_status);
 }

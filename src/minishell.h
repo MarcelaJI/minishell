@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/25 09:01:17 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/25 09:23:40 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,8 @@ void	strip_all_token_quotes(t_data *data);
 
 /*  UTILS  LISTS */
 char	*ms_substr(char const *s, unsigned int start, size_t len, t_data *data);
+char	*ms_strdup(const char *s, t_data *data);
+char	*ms_strjoin(char *s1, char *s2, int f, t_data *data);
 t_dlist	*newnode(char *str);
 void	node_addfront(t_dlist **list, t_dlist *node);
 void	node_addback(t_dlist **list, t_dlist *new);

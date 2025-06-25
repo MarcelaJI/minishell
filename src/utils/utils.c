@@ -6,11 +6,58 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 11:17:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/25 08:49:34 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/25 09:23:02 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
+
+char	*ms_strjoin(char *s1, char *s2, int f, t_data *data)
+{
+	char	*str;
+
+	if (!s1 && !s2)
+		return (NULL);
+	if (!s1)
+		return (ms_strdup(s2, data));
+	if (!s2)
+		return (ms_strdup(s1, data));
+	str = ft_calloc(sizeof(char), (ft_strlen(s1) + ft_strlen(s2) + 1));
+	check_memory_failure(data, str, NULL, 1);
+	ft_strlcpy(str, s1, ft_strlen(s1) + 1);
+	ft_strlcpy(str + ft_strlen(s1), s2, ft_strlen(s2) + 1);
+	if (f == 1 && s1)
+		free(s1);
+	if (f == 2 && s2)
+		free(s2);
+	if (f == 3)
+	{
+		if (s1)
+			free(s1);
+		if (s2)
+			free(s2);
+	}
+	return (str);
+}
+
+char	*ms_strdup(const char *s, t_data *data)
+{
+	char		*dup;
+	int			i;
+
+	i = 0;
+	dup = ft_calloc(sizeof(char), (ft_strlen(s) + 1));
+	check_memory_failure(data, dup, NULL, 1);
+	if (!dup)
+		return (NULL);
+	while (s[i])
+	{
+		dup[i] = s[i];
+		i++;
+	}
+	dup[i] = '\0';
+	return (dup);
+}
 
 char	*ms_substr(char const *s, unsigned int start, size_t len, t_data *data)
 {
