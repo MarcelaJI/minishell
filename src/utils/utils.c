@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 11:17:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/25 09:33:14 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/25 10:05:30 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,24 @@ char	*ms_substr(char const *s, unsigned int start, size_t len, t_data *data)
 
 void	free_all(t_data *data)
 {
+    if (data->input)
+    {
+        free(data->input);
+        data->input = NULL;
+    }
     if (data->tokens)
-		freelist(data->tokens);
+    {
+        freelist(data->tokens);
+        data->tokens = NULL;
+    }
+    if (data->env)
+    {
+        freelist(data->env);
+        data->env = NULL;
+    }
 }
+
+
 
 void	free_str_array(char **arr, size_t n)
 {

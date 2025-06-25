@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 12:09:31 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 12:14:20 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/25 10:13:03 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,20 +77,25 @@ char	*strip_quotes_from_string(char *str, t_data *data)
 		else
 			new[j++] = str[i++];
 	}
-	free(str);
 	return (new);
 }
 
 void	strip_all_token_quotes(t_data *data)
 {
 	t_dlist	*temp;
+	char	*new_str;
 
 	temp = data->tokens;
 	while (temp)
 	{
 		if (temp->str)
-			temp->str = strip_quotes_from_string(temp->str, data);
+		{
+			new_str = strip_quotes_from_string(temp->str, data);
+			free(temp->str);
+			temp->str = new_str; 
+		}
 		temp = temp->next;
 	}
 }
+
 
