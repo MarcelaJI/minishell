@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 12:32:32 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/25 09:02:19 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/25 09:05:14 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	expand_all_tokens(t_data *data)
 	while (temp)
 	{
 		if (temp->token != LIMITER)
-			temp->str = expand_env_vars(temp->str, data); // Esperando parte del código de Imma
+			temp->str = expand_env_vars(temp->str, data);
 		temp = temp->next;
 	}
 }
