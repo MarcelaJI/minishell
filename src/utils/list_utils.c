@@ -6,11 +6,11 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 14:30:06 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 14:30:48 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/25 09:28:02 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
 void	node_addback(t_dlist **list, t_dlist *new)
 {

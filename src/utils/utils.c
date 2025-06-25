@@ -6,11 +6,11 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 11:17:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/25 09:23:02 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/25 09:33:14 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
 char	*ms_strjoin(char *s1, char *s2, int f, t_data *data)
 {
@@ -119,17 +119,3 @@ void	free_str_array(char **arr, size_t n)
 	free(arr);
 }
 
-
-void	freelist(t_dlist *list)
-{
-	t_dlist	*temp;
-
-	while (list)
-	{
-		if (list->str)
-			free(list->str);
-		temp = list;
-		list = list->next;
-		free(temp);
-	}
-}

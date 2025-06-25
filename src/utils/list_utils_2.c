@@ -6,11 +6,11 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 14:33:19 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 14:34:07 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/25 09:27:57 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
 t_dlist	*skip_instructions(t_dlist *node, int n)
 {

@@ -6,11 +6,11 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 11:25:09 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 12:13:37 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/25 09:27:46 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../minishell.h"
 
 void	check_memory_failure(t_data *data, void *ptr, char **dptr, int f)
 {

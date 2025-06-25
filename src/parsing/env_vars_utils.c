@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 08:48:31 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/25 08:55:50 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/25 09:26:58 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ size_t	get_exp_len(char *str, t_data *data)
 	len = ft_strlen(str);
 	while (str[i])
 	{
-		skip_single_quotes(str, &dquote, NULL, &i);
+		skip_quoted_single_block(str, &dquote, NULL, &i);
 		if (str[i] == '$' && (!check_invalid_chars_env_var(str[i + 1])
 				|| str[i + 1] == '?' || str[i + 1] == '$'))
 		{
