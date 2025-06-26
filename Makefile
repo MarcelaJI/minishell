@@ -6,7 +6,7 @@
 #    By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 11:06:40 by ingjimen          #+#    #+#              #
-#    Updated: 2025/06/26 10:50:53 by ingjimen         ###   ########.fr        #
+#    Updated: 2025/06/26 11:00:23 by ingjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,16 +48,17 @@ $(LIBFT):
 $(NAME): $(OBJ)
 	@$(MAKE) --no-print-directory -C $(LIBFT_DIR)
 	@$(CC) $(CFLAGS) $(INC) $(OBJ) $(LIBFT) -lreadline -o $(NAME)
-	@printf "\033[34m"  # amarillo
+	@printf "$(CYAN)"
 	@echo "  __  __ _____ _   _ _____  _____ _    _ ______ _      _      "
 	@echo " |  \\/  |_   _| \\ | |_   _|/ ____| |  | |  ____| |    | |     "
 	@echo " | \\  / | | | |  \\| | | | | (___ | |__| | |__  | |    | |     "
 	@echo " | |\\/| | | | | . ' | | |  \\___ \\|  __  |  __| | |    | |     "
 	@echo " | |  | |_| |_| |\\  |_| |_ ____) | |  | | |____| |____| |____ "
 	@echo " |_|  |_|_____|_| \\_|_____|_____/|_|  |_|______|______|______|"
-	@printf "\033[33m" "By ingjimen- & iranieri\n"
+	@printf "$(YELLOW)                 By ingjimen- & iranieri\n"
 	@echo ""
-	@printf "\033[0m"  # reset color
+	@printf "$(NC)"
+	@printf "$(GREEN)BUILD SUCCESSFUL! $(NC)\n"
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(INC) -c $< -o $@
