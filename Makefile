@@ -6,7 +6,7 @@
 #    By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 11:06:40 by ingjimen          #+#    #+#              #
-#    Updated: 2025/06/26 11:00:23 by ingjimen         ###   ########.fr        #
+#    Updated: 2025/06/26 11:04:04 by ingjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,7 +46,7 @@ $(LIBFT):
 	@$(MAKE) -C $(LIBFT_DIR) > /dev/null
 
 $(NAME): $(OBJ)
-	@$(MAKE) --no-print-directory -C $(LIBFT_DIR)
+	@$(MAKE) --no-print-directory -C $(LIBFT_DIR) > /dev/null
 	@$(CC) $(CFLAGS) $(INC) $(OBJ) $(LIBFT) -lreadline -o $(NAME)
 	@printf "$(CYAN)"
 	@echo "  __  __ _____ _   _ _____  _____ _    _ ______ _      _      "
