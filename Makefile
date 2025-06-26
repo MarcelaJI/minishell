@@ -6,7 +6,7 @@
 #    By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 11:06:40 by ingjimen          #+#    #+#              #
-#    Updated: 2025/06/26 11:04:04 by ingjimen         ###   ########.fr        #
+#    Updated: 2025/06/26 11:05:22 by ingjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,7 +55,7 @@ $(NAME): $(OBJ)
 	@echo " | |\\/| | | | | . ' | | |  \\___ \\|  __  |  __| | |    | |     "
 	@echo " | |  | |_| |_| |\\  |_| |_ ____) | |  | | |____| |____| |____ "
 	@echo " |_|  |_|_____|_| \\_|_____|_____/|_|  |_|______|______|______|"
-	@printf "$(YELLOW)                 By ingjimen- & iranieri\n"
+	@printf "$(YELLOW)                 By ingjimen & iranieri\n"
 	@echo ""
 	@printf "$(NC)"
 	@printf "$(GREEN)BUILD SUCCESSFUL! $(NC)\n"
