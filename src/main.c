@@ -44,6 +44,52 @@ void debug_print_tokens(t_dlist *tokens, const char *title)
     }
 }
 
+void print_command_structure_from_tokens(t_dlist *tokens)
+{
+    int cmd_num = 0;
+    t_dlist *tmp = tokens;
+
+    printf(MAGENTA "\n🎯 ESTRUCTURA DE COMANDOS PARSEADA:\n" RESET);
+
+    while (tmp)
+    {
+        printf("\n🔹 Comando #%d\n", cmd_num++);
+
+        while (tmp && tmp->token != PIPE)
+        {
+            if (tmp->token == CMD)
+                printf("  🟢 CMD      : %s\n", tmp->str);
+            else if (tmp->token == PARAM)
+                printf("  🔸 ARG      : %s\n", tmp->str);
+            else if (tmp->token == INF)
+                printf("  🔻 INPUT    : <\n");
+            else if (tmp->token == OUTF)
+                printf("  🔺 OUTPUT   : >\n");
+            else if (tmp->token == OUTF_APD)
+                printf("  🔺 APPEND   : >>\n");
+            else if (tmp->token == HERE_DOC)
+                printf("  📥 HEREDOC  : <<\n");
+            else if (tmp->token == FILENAME)
+                printf("      📄 Archivo : %s\n", tmp->str);
+            else if (tmp->token == LIMITER)
+                printf("      🔚 Limiter : %s\n", tmp->str);
+            else
+                printf("  ❓ Otro token: %s (tipo %d)\n", tmp->str, tmp->token);
+
+            tmp = tmp->next;
+        }
+
+        if (tmp && tmp->token == PIPE)
+        {
+            printf("  🔗 PIPE hacia el siguiente comando\n");
+            tmp = tmp->next;
+        }
+    }
+
+    printf(MAGENTA "\n🧩 Fin de estructura\n" RESET);
+}
+
+
 void load_env(char **envp, t_data *data)
 {
     int i = 0;
@@ -99,6 +145,8 @@ int main(int argc, char **argv, char **envp)
 
         strip_all_token_quotes(&data);
         debug_print_tokens(data.tokens, "Después de eliminar comillas");
+        print_command_structure_from_tokens(data.tokens);
+
 
         if (!validate_token_syntax(&data))
         {
