@@ -6,7 +6,7 @@
 #    By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 11:06:40 by ingjimen          #+#    #+#              #
-#    Updated: 2025/06/26 10:47:44 by ingjimen         ###   ########.fr        #
+#    Updated: 2025/06/26 10:50:53 by ingjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,17 @@ OBJ = $(SRC:.c=.o)
 
 LIBFT_DIR = Libft
 LIBFT = $(LIBFT_DIR)/libft.a
+
+GREEN = \033[0;32m
+RED = \033[1;31m
+BLUE_UNDER = \033[1;34m
+YELLOW = \033[0;33m
+CYAN = \033[1;36m
+MAGENTA = \033[0;35m
+WHITE = \033[1;37m
+WHITE_RED_BG = \033[0;41;37m
+YELLOW_UNDER = \033[1;4;33m
+NC = \033[0m
 
 .PHONY: all clean fclean re
 
