@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/26 11:39:33 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/26 12:08:22 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,11 @@ void	get_exp_len_extension(char *str, t_data *data, size_t *len);
 size_t	get_exp_len(char *str, t_data *data);
 int	check_invalid_chars_env_var(char c);
 size_t	env_var_name_len(char *str);
-
+void	add_to_env(char *str, t_data *data);
+void	update_oldpwd(t_dlist *env, t_data *data);
+void	update_pwd(t_dlist *env, t_data *data);
+void	update_shlvl(t_dlist *env, t_data *data);
+void	create_env(t_data *data, char **env);
 
 /*  QUOTES  */
 void	update_double_quote_flag(char *str, int *dquote, int *squote, size_t *i);

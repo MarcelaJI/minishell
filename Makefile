@@ -6,7 +6,7 @@
 #    By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 11:06:40 by ingjimen          #+#    #+#              #
-#    Updated: 2025/06/26 11:26:31 by ingjimen         ###   ########.fr        #
+#    Updated: 2025/06/26 11:55:16 by ingjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRC = src/main.c \
 	  src/parsing/tokenizer.c src/parsing/tokenizer_utils.c src/parsing/quotes.c \
 	  src/parsing/parsing.c src/parsing/parsing_utils.c src/parsing/fix_input.c \
 	  src/parsing/env.c src/parsing/env_vars.c src/parsing/env_vars_utils.c \
+	  src/init/env_init.c \
 	  src/utils/utils.c src/utils/error.c src/utils/list_utils.c src/utils/list_utils_2.c
 
 OBJ = $(SRC:.c=.o)
