@@ -6,7 +6,7 @@
 #    By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 11:06:40 by ingjimen          #+#    #+#              #
-#    Updated: 2025/06/26 11:13:53 by ingjimen         ###   ########.fr        #
+#    Updated: 2025/06/26 11:26:31 by ingjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,16 +49,15 @@ $(NAME): $(OBJ)
 	@$(MAKE) --no-print-directory -C $(LIBFT_DIR) > /dev/null
 	@$(CC) $(CFLAGS) $(INC) $(OBJ) $(LIBFT) -lreadline -o $(NAME) > /dev/null
 	@printf "$(CYAN)"
-	@echo "  __  __ _____ _   _ _____  _____ _    _ ______ _      _      "
-	@echo " |  \\/  |_   _| \\ | |_   _|/ ____| |  | |  ____| |    | |     "
-	@echo " | \\  / | | | |  \\| | | | | (___ | |__| | |__  | |    | |     "
-	@echo " | |\\/| | | | | . ' | | |  \\___ \\|  __  |  __| | |    | |     "
-	@echo " | |  | |_| |_| |\\  |_| |_ ____) | |  | | |____| |____| |____ "
-	@echo " |_|  |_|_____|_| \\_|_____|_____/|_|  |_|______|______|______|"
-	@printf "$(YELLOW)                 By ingjimen & iranieri\n"
+	@echo "      _          _ _           _ "
+	@echo "     | |        | | |         (_)"
+	@echo "  ___| |__   ___| | |_ __ ___  _ "
+	@echo " / __| '_ \\ / _ \\ | | '_ \` _ \\| |"
+	@echo " \\__ \\ | | |  __/ | | | | | | | |"
+	@echo " |___/_| |_|\\___|_|_|_| |_| |_|_|"
+	@printf "$(YELLOW)      By ingjimen & iranieri\n"
 	@echo ""
-	@printf "$(NC)"
-	@printf "$(GREEN)BUILD SUCCESSFUL🐚! $(NC)\n"
+	@printf "$(GREEN)BUILD SUCCESSFUL!🐚$(NC)\n"
 
 %.o: %.c
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@ > /dev/null
@@ -72,3 +71,4 @@ fclean: clean
 	@$(MAKE) fclean -C $(LIBFT_DIR) > /dev/null
 
 re: fclean all
+
