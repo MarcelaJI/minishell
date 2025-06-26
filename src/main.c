@@ -28,13 +28,19 @@ const char *token_type_to_str(enum e_type type)
     }
 }
 
-void print_tokens(t_dlist *tokens)
+void debug_print_tokens(t_dlist *tokens, const char *title)
 {
-    while (tokens)
+    t_dlist *tmp = tokens;
+    printf(CYAN "\n🔍 %s\n" RESET, title);
+    while (tmp)
     {
-        printf(GREEN "Token[%d]: " RESET "\"%s\" \tType: %s\n",
-            tokens->index, tokens->str, token_type_to_str(tokens->token));
-        tokens = tokens->next;
+        printf("📦 Token[%d]: %-20s | Tipo: %-10s | Prev: %-10s | Next: %-10s\n",
+               tmp->index,
+               tmp->str ? tmp->str : "(null)",
+               token_type_to_str(tmp->token),
+               tmp->prev ? tmp->prev->str : "NULL",
+               tmp->next ? tmp->next->str : "NULL");
+        tmp = tmp->next;
     }
 }
 
@@ -77,20 +83,32 @@ int main(int argc, char **argv, char **envp)
         if (check_quotes(line))
         {
             printf(RED "Syntax error: unclosed quote\n" RESET);
-            free(line); 
+            free(line);
             continue;
         }
 
         data.input = fix_input(line, &data);
+        printf(YELLOW "\n🧾 Entrada procesada: \"%s\"\n" RESET, data.input);
 
         tokenize_input_string(data.input, &data);
-        expand_all_tokens(&data);
-        strip_all_token_quotes(&data);
         assign_token_indexes(data.tokens);
+        debug_print_tokens(data.tokens, "Después de tokenización");
+
+        expand_all_tokens(&data);
+        debug_print_tokens(data.tokens, "Después de expansión de variables");
+
+        strip_all_token_quotes(&data);
+        debug_print_tokens(data.tokens, "Después de eliminar comillas");
+
         if (!validate_token_syntax(&data))
-            print_tokens(data.tokens);
+        {
+            printf(GREEN "\n✅ Sintaxis válida. Estructura lista para ejecución.\n" RESET);
+        }
         else
+        {
+            printf(RED "\n❌ Error de sintaxis.\n" RESET);
             data.exit_status = 258;
+        }
 
         free_all(&data);
     }
