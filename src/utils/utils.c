@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 11:17:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/25 10:05:30 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/28 18:19:15 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,21 +87,20 @@ char	*ms_substr(char const *s, unsigned int start, size_t len, t_data *data)
 
 void	free_all(t_data *data)
 {
-    if (data->input)
-    {
-        free(data->input);
-        data->input = NULL;
-    }
-    if (data->tokens)
-    {
-        freelist(data->tokens);
-        data->tokens = NULL;
-    }
-    if (data->env)
-    {
-        freelist(data->env);
-        data->env = NULL;
-    }
+	if (data->input)
+		free(data->input);
+	if (data->tokens)
+		freelist(data->tokens);
+	if (data->env)
+		freelist(data->env);
+	if (data->instructions)
+		free_str_array(data->instructions, data->cmd_count);
+	if (data->in_fds)
+		free(data->in_fds);
+	if (data->out_fds)
+		free(data->out_fds);
+	if (data->pids)
+		free(data->pids);
 }
 
 
