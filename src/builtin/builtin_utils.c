@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:34:38 by iranieri          #+#    #+#             */
-/*   Updated: 2025/06/28 18:20:04 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/06/28 19:54:43 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ void    ft_cd(t_data *data, int n)
         {
             ft_putendl_fd(SHELLNAME"cd: HOME not set", 2);
             free_str_array(params, 0);
-            builtin_exit(data, 1);
+            ft_exit(data, 1);
             return ;
         }
     }
     else
         dir = ms_strdup(params[1], data);
-    cd_builtin_extension(params, dir, data);
+    ft_cd_utils(params, dir, data);
 }
 
 void    ft_pwd(t_data *data)
