@@ -6,7 +6,7 @@
 /*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 11:28:25 by iranieri          #+#    #+#             */
-/*   Updated: 2025/06/28 18:31:38 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/06/28 19:43:20 by iranieri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,32 @@ void    open_files_extension(t_data *data, int in_fd, int out_fd, int n)
         free_all(data);
         exit(0);
     }
+}
+
+void    open_files(t_data *data, t_dlist *node, int n)
+{
+    int in_fd;
+    int out_fd;
+
+    in_fd = 0;
+    out_fd = 0;
+    node = skip_instructions(node, n);
+    while (node && node->token != PIPE)
+    {
+        if (node->token == FILENAME && node->prev->token == INF)
+            in_fd = open_infile(data, node, in_fd);
+        if (node->token == FILENAME && (node->prev->token == OUTF
+                || node->prev->token == OUTF_APD) && in_fd != -1)
+            out_fd = open_outfile(data, node, out_fd,
+                    (node->prev->token == OUTF_APD));
+        if (in_fd == -1 || out_fd == -1)
+        {
+            ft_putstr_fd(SHELLNAME, 2);
+            perror(node->str);
+            open_error(data, in_fd, out_fd, n);
+            break ;
+        }
+        node = node->next;
+    }
+    open_files_extension(data, in_fd, out_fd, n);
 }

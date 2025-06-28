@@ -6,7 +6,7 @@
 /*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/28 19:29:58 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/06/28 19:43:54 by iranieri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,6 +180,7 @@ void    open_error(t_data *data, int in_fd, int out_fd, int n);
 int open_outfile(t_data *data, t_dlist *node, int out_fd, int apd);
 int open_infile(t_data *data, t_dlist *node, int in_fd);
 void    open_files_extension(t_data *data, int in_fd, int out_fd, int n);
+void    open_files(t_data *data, t_dlist *node, int n);
 void    close_error(int fd, t_data *data);
 int dup_close(int oldfd, int newfd, t_data *data);
 void    dupdup(t_data *data, int n);
