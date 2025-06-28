@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/28 18:30:25 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/28 18:58:28 by iranieri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 # define SHELLPRMPT	CYAN "[shellmi]$ " RESET
 
 /* GLOBAL VARIABLE FOR SIGNAL */
-extern int	g_sig;
+extern int	exit_nbr;
 
 /* FLAGS FOR TOKEN TYPES */
 enum e_type
