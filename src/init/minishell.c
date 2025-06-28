@@ -6,17 +6,16 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 18:39:36 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/28 18:40:17 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/28 19:03:42 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-int	g_sig;
 
 void	reset_data(t_data *data)
 {
-	g_sig = -1;
+	exit_nbr = -1;
 	data->input = NULL;
 	data->instructions = NULL;
 	data->tokens = NULL;
