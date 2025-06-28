@@ -6,7 +6,7 @@
 /*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/28 19:43:54 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/06/28 19:47:18 by iranieri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,7 +187,7 @@ void    dupdup(t_data *data, int n);
 
 
 /* SIGNAL */
-void    readline_sig(int sig);
+void    heredoc_signal(int sig);
 void    do_nothing(int sig);
 void    readline_sig(int sig);
 
