@@ -6,12 +6,13 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 18:39:36 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/28 19:03:42 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/28 20:09:34 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
+int	exit_nbr;
 
 void	reset_data(t_data *data)
 {
