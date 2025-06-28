@@ -6,7 +6,7 @@
 #    By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 11:06:40 by ingjimen          #+#    #+#              #
-#    Updated: 2025/06/28 18:28:01 by ingjimen         ###   ########.fr        #
+#    Updated: 2025/06/28 19:20:10 by ingjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 INC = -Isrc -Ilibft/includes
 
-SRC = src/main.c \
+SRC = src/init/minishell.c \
 	  src/parsing/tokenizer.c src/parsing/tokenizer_utils.c src/parsing/quotes.c \
 	  src/parsing/parsing.c src/parsing/parsing_utils.c src/parsing/fix_input.c \
 	  src/parsing/env.c src/parsing/env_vars.c src/parsing/env_vars_utils.c \
