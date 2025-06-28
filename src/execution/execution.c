@@ -12,21 +12,34 @@
 
 #include "../minishell.h"
 
-void    execve_fail(char *cmd, char **execve_arr, char **env, t_data *data)
+void execve_fail(char *cmd, char **execve_arr, char **env, t_data *data)
 {
     ft_putstr_fd(SHELLNAME, 2);
     ft_putstr_fd(cmd, 2);
     if (errno == EACCES)
+    {
         ft_putendl_fd(": Permission denied", 2);
+        free(cmd);
+        free_str_array(env, 0);
+        free_str_array(execve_arr, 0);
+        free_all(data);
+        close_error(0, data);
+        close_error(1, data);
+        exit(126);
+    }
     else
+    {
         ft_putendl_fd(": Command not found", 2);
-    free(cmd);
-    free_str_array(env, 0);
-    free_str_array(execve_arr, 0);
-    free_all(data);
-    close_error(0, data);
-    close_error(1, data);
+        free(cmd);
+        free_str_array(env, 0);
+        free_str_array(execve_arr, 0);
+        free_all(data);
+        close_error(0, data);
+        close_error(1, data);
+        exit(127); 
+    }
 }
+
 
 void    exec_single_cmd(t_data *data, int n)
 {
