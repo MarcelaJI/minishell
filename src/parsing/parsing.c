@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 12:32:32 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/25 09:05:14 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/28 19:07:03 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,6 @@ int	parse_input(t_data *data)
 	}
 	expand_all_tokens(data);
 	strip_all_token_quotes(data);
-	//convert_tokens(data); // -> parte de la ejecución esperando a Imma
+	convert_tokens(data);
 	return (0);
 }
