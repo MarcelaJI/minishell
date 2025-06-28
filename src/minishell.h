@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/28 18:16:46 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/28 18:30:25 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@
 # define RESET		"\x1b[0m"
 # define SHELLNAME	"[shellmi]: "
 # define SHELLPRMPT	CYAN "[shellmi]$ " RESET
+
+/* GLOBAL VARIABLE FOR SIGNAL */
+extern int	g_sig;
 
 /* FLAGS FOR TOKEN TYPES */
 enum e_type
@@ -113,6 +116,8 @@ void	get_exp_len_extension(char *str, t_data *data, size_t *len);
 size_t	get_exp_len(char *str, t_data *data);
 int	check_invalid_chars_env_var(char c);
 size_t	env_var_name_len(char *str);
+
+/* INIT */
 void	add_to_env(char *str, t_data *data);
 void	update_oldpwd(t_dlist *env, t_data *data);
 void	update_pwd(t_dlist *env, t_data *data);
