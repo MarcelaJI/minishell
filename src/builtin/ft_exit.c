@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:21:30 by iranieri          #+#    #+#             */
-/*   Updated: 2025/06/28 19:25:23 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/06/28 19:56:32 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void    ft_exit_builtin_no_params(t_data *data, char **params)
+void    ft_exit_no_params(t_data *data, char **params)
 {
     ft_putendl_fd("exit", 2);
     free_str_array(params, 0);
