@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 18:26:22 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/28 18:37:40 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/28 18:59:40 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	take_input(t_data *data)
 		signal(SIGINT, readline_sig);
 		signal(SIGQUIT, SIG_IGN);
 		data->input = readline(SHELLPRMPT);
-		if (g_sig == SIGINT)
+		if (exit_nbr == SIGINT)
 			data->exit_status = 1;
-		g_sig = -1;
+		exit_nbr = -1;
 		if (!data->input)
 			break ;
 		if (!parse_input(data))
