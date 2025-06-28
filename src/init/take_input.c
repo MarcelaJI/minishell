@@ -6,11 +6,9 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 18:26:22 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/28 18:28:46 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/28 18:37:40 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "../minishell.h"
 
 #include "../minishell.h"
 
