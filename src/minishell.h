@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/28 18:58:28 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/06/28 19:13:22 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,8 @@ void	update_oldpwd(t_dlist *env, t_data *data);
 void	update_pwd(t_dlist *env, t_data *data);
 void	update_shlvl(t_dlist *env, t_data *data);
 void	create_env(t_data *data, char **env);
+void	reset_input(t_data *data);
+void	take_input(t_data *data);
 
 /*  QUOTES  */
 void	update_double_quote_flag(char *str, int *dquote, int *squote, size_t *i);
@@ -130,6 +132,7 @@ void	update_single_quote_flag(char *str, int *squote, int *dquote, size_t *i);
 void	skip_quoted_single_block(char *str, int *dquote, int *squote, size_t *i);
 char	*strip_quotes_from_string(char *str, t_data *data);
 void	strip_all_token_quotes(t_data *data);
+void	reset_data(t_data *data);
 
 /*  UTILS  LISTS */
 char	*ms_substr(char const *s, unsigned int start, size_t len, t_data *data);
