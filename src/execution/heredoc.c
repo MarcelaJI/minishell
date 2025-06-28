@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 10:30:12 by iranieri          #+#    #+#             */
-/*   Updated: 2025/06/28 18:39:52 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/06/28 19:45:53 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void    heredoc_child(t_data *data, t_dlist *node)
 {
     char    *line;
 
-    signal(SIGINT, hdc_sig);
+    signal(SIGINT, heredoc_signal);
     signal(SIGQUIT, SIG_IGN);
     if (data->prev_pipe_fd != -1)
         close_error(data->prev_pipe_fd, data);
