@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/26 12:08:22 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/28 18:30:25 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,9 @@
 # define RESET		"\x1b[0m"
 # define SHELLNAME	"[shellmi]: "
 # define SHELLPRMPT	CYAN "[shellmi]$ " RESET
+
+/* GLOBAL VARIABLE FOR SIGNAL */
+extern int	g_sig;
 
 /* FLAGS FOR TOKEN TYPES */
 enum e_type
@@ -63,11 +66,19 @@ typedef struct s_dlist
 
 typedef struct s_data
 {
-    t_dlist	*tokens;
 	t_dlist	*env;
 	char	*input;
+	t_dlist	*tokens;
+	char	**instructions;
+	int		*in_fds;
+	int		*out_fds;
+	pid_t	*pids;
+	int		cmd_count;
 	int		exit_status;
-}   t_data;
+	int		pipe_fds[2];
+	int		prev_pipe_fd;
+	int		open_fail;
+}	t_data;
 
 
 /*  TOKENIZER  */
@@ -105,6 +116,8 @@ void	get_exp_len_extension(char *str, t_data *data, size_t *len);
 size_t	get_exp_len(char *str, t_data *data);
 int	check_invalid_chars_env_var(char c);
 size_t	env_var_name_len(char *str);
+
+/* INIT */
 void	add_to_env(char *str, t_data *data);
 void	update_oldpwd(t_dlist *env, t_data *data);
 void	update_pwd(t_dlist *env, t_data *data);
