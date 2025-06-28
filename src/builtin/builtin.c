@@ -6,7 +6,7 @@
 /*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 13:50:23 by iranieri          #+#    #+#             */
-/*   Updated: 2025/06/28 18:23:34 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/06/28 19:20:52 by iranieri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void    builtin_exit(t_data *data, int exit_status)
 
 void    exec_single_builtin(t_data *data)
 {
-    open_here_docs(data, data->tokens, 0);
+    open_heredoc(data, data->tokens, 0);
     open_files(data, data->tokens, 0);
     if (data->open_fail == 1 || g_sig == SIGINT)
         return ;

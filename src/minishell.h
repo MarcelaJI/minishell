@@ -6,7 +6,7 @@
 /*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/28 18:58:28 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/06/28 19:27:37 by iranieri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,5 +153,59 @@ void	check_memory_failure(t_data *data, void *ptr, char **dptr, int f);
 void	freelist(t_dlist *list);
 void	free_str_array(char **arr, size_t n);
 
+/*  EXECUTION */
+void    set_cmd_count(t_data *data);
+char    **create_exec_array(t_data *data, int n);
+void    convert_tokens(t_data *data);
+void    exit_status(pid_t pid, t_data *data);
+void    alloc_fd_pid_arrays(t_data *data);
+void    execve_fail(char *cmd, char **execve_arr, char **env, t_data *data);
+void    exec_single_cmd(t_data *data, int n);
+void    execution_child(t_data *data, int i);
+void    execution_parent(t_data *data, int i);
+void    execution(t_data *data);
+
+/* HEREDOC */
+void    exit_heredoc(t_data *data, char *limiter, char *line);
+void    heredoc_child(t_data *data, t_dlist *node);
+int heredoc(t_data *data, t_dlist *node);
+int heredoc_check(t_dlist *node, int n);
+void    open_heredoc(t_data *data, t_dlist *node, int n);
+
+/* REDIR & PIPES */
+void    open_error(t_data *data, int in_fd, int out_fd, int n);
+int open_outfile(t_data *data, t_dlist *node, int out_fd, int apd);
+int open_infile(t_data *data, t_dlist *node, int in_fd);
+void    open_files_extension(t_data *data, int in_fd, int out_fd, int n);
+void    close_error(int fd, t_data *data);
+int dup_close(int oldfd, int newfd, t_data *data);
+void    dupdup(t_data *data, int n);
+
+
+/* SIGNAL */
+void    readline_sig(int sig);
+void    do_nothing(int sig);
+void    readline_sig(int sig);
+
+/* BUILT IN */
+int is_builtin(t_data *data, int n);
+void    exec_builtin(t_data *data, int n);
+void    exec_single_builtin(t_data *data);
+void    builtin_exit(t_data *data, int exit_status);
+void    ft_pwd(t_data *data);
+void    ft_cd(t_data *data, int n);
+void    ft_cd_utils(char **params, char *dir, t_data *data);
+void    ft_echo(t_data *data, int n);
+size_t  ft_echo_newline(char **params, int *newline);
+void    ft_unset(t_data *data, int n);
+void    ft_env(t_data *data);
+void    ft_exit(t_data *data, int n);
+void    ft_exit_invalid_params(t_data *data, char **params);
+void    ft_exit_builtin_no_params(t_data *data, char **params);
+void    ft_export(t_data *data, int n);
+int ft_export_utils(char *str, t_data *data);
+void    ft_export_list(t_data *data);
+void    sort_export_list(char **export_arr);
+void    print_export_list(char **export_arr, int fd);
 
 #endif

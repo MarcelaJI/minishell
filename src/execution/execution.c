@@ -102,3 +102,4 @@ void    execution(t_data *data)
         exit_status(data->pids[i - 1], data);
     exit_nbr = -1;
 }
+

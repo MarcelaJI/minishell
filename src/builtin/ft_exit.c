@@ -6,13 +6,13 @@
 /*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:21:30 by iranieri          #+#    #+#             */
-/*   Updated: 2025/06/28 18:21:34 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/06/28 19:25:23 by iranieri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void    exit_builtin_no_params(t_data *data, char **params)
+void    ft_exit_builtin_no_params(t_data *data, char **params)
 {
     ft_putendl_fd("exit", 2);
     free_str_array(params, 0);
@@ -20,7 +20,7 @@ void    exit_builtin_no_params(t_data *data, char **params)
     exit(0);
 }
 
-void    exit_builtin_invalid_params(t_data *data, char **params)
+void    ft_exit_invalid_params(t_data *data, char **params)
 {
     ft_putstr_fd(SHELLNAME"exit: ", 2);
     ft_putstr_fd(params[1], 2);
@@ -30,16 +30,16 @@ void    exit_builtin_invalid_params(t_data *data, char **params)
     exit(255);
 }
 
-void    exit_builtin(t_data *data, int n)
+void    ft_exit(t_data *data, int n)
 {
     char        **params;
     long long   code;
 
     params = create_exec_array(data, n);
     if (!params[1])
-        exit_builtin_no_params(data, params);
+        ft_exit_no_params(data, params);
     if (params[1] && !checkfornum(params[1]))
-        exit_builtin_invalid_params(data, params);
+        ft_exit_invalid_params(data, params);
     if (params[2])
     {
         error("exit: too many arguments", NULL, data);
