@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/26 12:08:22 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/28 18:16:46 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,19 @@ typedef struct s_dlist
 
 typedef struct s_data
 {
-    t_dlist	*tokens;
 	t_dlist	*env;
 	char	*input;
+	t_dlist	*tokens;
+	char	**instructions;
+	int		*in_fds;
+	int		*out_fds;
+	pid_t	*pids;
+	int		cmd_count;
 	int		exit_status;
-}   t_data;
+	int		pipe_fds[2];
+	int		prev_pipe_fd;
+	int		open_fail;
+}	t_data;
 
 
 /*  TOKENIZER  */
