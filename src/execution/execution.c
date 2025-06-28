@@ -40,7 +40,6 @@ void execve_fail(char *cmd, char **execve_arr, char **env, t_data *data)
     }
 }
 
-
 void    exec_single_cmd(t_data *data, int n)
 {
     char    **execve_arr;
