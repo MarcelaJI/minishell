@@ -6,7 +6,7 @@
 #    By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 11:06:40 by ingjimen          #+#    #+#              #
-#    Updated: 2025/06/29 09:34:21 by ingjimen         ###   ########.fr        #
+#    Updated: 2025/06/29 11:40:47 by ingjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,18 +14,23 @@ NAME = minishell
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-INC = -Isrc -Ilibft/includes
+
+READLINE_INCLUDE = -I/opt/homebrew/opt/readline/include
+
+READLINE_LIB = -L/opt/homebrew/opt/readline/lib -lreadline
+
+INC = -Isrc -Ilibft/includes $(READLINE_INCLUDE)
 
 SRC = src/init/minishell.c \
-	  src/parsing/tokenizer.c src/parsing/tokenizer_utils.c src/parsing/quotes.c \
-	  src/parsing/parsing.c src/parsing/parsing_utils.c src/parsing/fix_input.c \
-	  src/parsing/env.c src/parsing/env_vars.c src/parsing/env_vars_utils.c \
-	  src/init/env_init.c src/init/take_input.c \
-	  src/utils/utils.c src/utils/error.c src/utils/list_utils.c src/utils/list_utils_2.c \
-	  src/execution/execution.c src/execution/execution_utils.c src/execution/execution_utils_2.c src/execution/heredoc.c \
-	  src/execution/open_files.c src/execution/redirection.c src/execution/signals.c \
-	  src/builtin/builtin.c src/builtin/builtin_utils.c src/builtin/ft_echo.c \
-	  src/builtin/ft_env_unset.c src/builtin/ft_exit.c src/builtin/ft_export.c
+          src/parsing/tokenizer.c src/parsing/tokenizer_utils.c src/parsing/quotes.c \
+          src/parsing/parsing.c src/parsing/parsing_utils.c src/parsing/fix_input.c \
+          src/parsing/env.c src/parsing/env_vars.c src/parsing/env_vars_utils.c \
+          src/init/env_init.c src/init/take_input.c \
+          src/utils/utils.c src/utils/error.c src/utils/list_utils.c src/utils/list_utils_2.c \
+          src/execution/execution.c src/execution/execution_utils.c src/execution/execution_utils_2.c src/execution/heredoc.c \
+          src/execution/open_files.c src/execution/redirection.c src/execution/signals.c \
+          src/builtin/builtin.c src/builtin/builtin_utils.c src/builtin/ft_echo.c \
+          src/builtin/ft_env_unset.c src/builtin/ft_exit.c src/builtin/ft_export.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -52,7 +57,7 @@ $(LIBFT):
 
 $(NAME): $(OBJ)
 	@$(MAKE) --no-print-directory -C $(LIBFT_DIR) > /dev/null
-	@$(CC) $(CFLAGS) $(INC) $(OBJ) $(LIBFT) -lreadline -o $(NAME) > /dev/null
+	@$(CC) $(CFLAGS) $(INC) $(OBJ) $(LIBFT) $(READLINE_LIB) -o $(NAME) > /dev/null
 	@printf "$(CYAN)"
 	@echo "      _          _ _           _ "
 	@echo "     | |        | | |         (_)"
@@ -76,4 +81,5 @@ fclean: clean
 	@$(MAKE) fclean -C $(LIBFT_DIR) > /dev/null
 
 re: fclean all
+
 
