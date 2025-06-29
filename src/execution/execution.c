@@ -51,8 +51,6 @@ void    exec_single_cmd(t_data *data, int n)
     exit(127 - (errno == EACCES));
 }
 
-
-
 void    execution_child(t_data *data, int i)
 {
     signal(SIGQUIT, SIG_DFL);
