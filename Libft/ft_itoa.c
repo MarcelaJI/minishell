@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ingjimen <ingjimen@student.42madrid.c      +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/29 16:38:19 by ingjimen          #+#    #+#             */
-/*   Updated: 2024/09/29 19:52:33 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/29 11:20:02 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,7 @@ char	*ft_itoa(int n)
 	char				*s;
 	long int			len;
 	unsigned int		number;
-	int					sign;
 
-	sign = 1;
 	len = ft_len(n);
 	s = (char *)malloc(sizeof(char) * (len + 1));
 	if (!(s))
@@ -54,7 +52,6 @@ char	*ft_itoa(int n)
 		s[0] = '0';
 	if (n < 0)
 	{
-		sign *= -1;
 		number = n * -1;
 		s[0] = '-';
 	}
@@ -63,3 +60,4 @@ char	*ft_itoa(int n)
 	s = ft_char(s, number, len);
 	return (s);
 }
+
