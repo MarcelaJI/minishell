@@ -40,44 +40,17 @@ void execve_fail(char *cmd, char **execve_arr, char **env, t_data *data)
     }
 }
 
-void exec_single_cmd(t_data *data, int n)
+void    exec_single_cmd(t_data *data, int n)
 {
-    char **execve_arr;
-    char **env;
-    char *cmd;
-
     if (!data->instructions[n])
-        return;
-
+        return ;
     if (is_builtin(data, n))
-    {
         exec_builtin(data, n);
-    }
     else
-    {
-        execve_arr = create_exec_array(data, n);
-        if (execve_arr[0] && ft_strcmp(execve_arr[0], ".") == 0 && !execve_arr[1])
-        {
-            ft_putendl_fd(SHELLNAME".: filename argument required", 2);
-            free_str_array(execve_arr, 0);
-            free_all(data);
-            exit(2);
-        }
-        if (execve_arr[0] && ft_strcmp(execve_arr[0], "..") == 0)
-        {
-            ft_putendl_fd(SHELLNAME"..: command not found", 2);
-            free_str_array(execve_arr, 0);
-            free_all(data);
-            exit(127);
-        }
-        env = convert_env_to_strings(data);
-        cmd = ms_strdup(execve_arr[0], data);
-        execve_arr[0] = search_path(execve_arr[0], env, data);
-        execve(execve_arr[0], execve_arr, env);
-        execve_fail(cmd, execve_arr, env, data);
-    }
+        exec_external_cmd(data, n);
     exit(127 - (errno == EACCES));
 }
+
 
 
 void    execution_child(t_data *data, int i)

@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/29 09:23:57 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/29 09:44:40 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,10 +167,11 @@ void    exit_status(pid_t pid, t_data *data);
 void    alloc_fd_pid_arrays(t_data *data);
 void    execve_fail(char *cmd, char **execve_arr, char **env, t_data *data);
 void    exec_single_cmd(t_data *data, int n);
+void	exec_external_cmd(t_data *data, int n);
 void    execution_child(t_data *data, int i);
 void    execution_parent(t_data *data, int i);
 void    execution(t_data *data);
-int is_directory(const char *path);
+int		is_directory(const char *path);
 
 /* HEREDOC */
 void    exit_heredoc(t_data *data, char *limiter, char *line);
