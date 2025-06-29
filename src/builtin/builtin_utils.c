@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 14:34:38 by iranieri          #+#    #+#             */
-/*   Updated: 2025/06/28 19:54:43 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/29 09:05:44 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ void    ft_cd_utils(char **params, char *dir, t_data *data)
         perror(NULL);
         fail = 1;
     }
+    if (!fail && params[1] && !ft_strncmp(params[1], "-", 2))
+        ft_putendl_fd(dir, 1); // imprimir ruta si es "cd -"
     if (dir)
         free(dir);
     if (!fail)
@@ -43,7 +45,8 @@ void    ft_cd(t_data *data, int n)
     char    *dir;
 
     params = create_exec_array(data, n);
-    if (!params[1])
+    dir = NULL;
+    if (!params[1]) // cd
     {
         dir = get_env_var_str("HOME", data);
         if (!dir)
@@ -54,10 +57,23 @@ void    ft_cd(t_data *data, int n)
             return ;
         }
     }
-    else
+    else if (!ft_strncmp(params[1], "-", 2)) // cd -
+    {
+        dir = get_env_var_str("OLDPWD", data);
+        if (!dir)
+        {
+            ft_putendl_fd(SHELLNAME"cd: OLDPWD not set", 2);
+            free_str_array(params, 0);
+            ft_exit(data, 1);
+            return ;
+        }
+    }
+    else // cd <path>
         dir = ms_strdup(params[1], data);
     ft_cd_utils(params, dir, data);
 }
+
+
 
 void    ft_pwd(t_data *data)
 {

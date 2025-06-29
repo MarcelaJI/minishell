@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/28 19:51:20 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/29 09:23:57 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 # include <readline/history.h>
 # include <signal.h>
 # include <sys/wait.h>
+# include <sys/stat.h>
 
 # define RED		"\x1b[31m"
 # define GREEN		"\x1b[32m"
@@ -169,6 +170,7 @@ void    exec_single_cmd(t_data *data, int n);
 void    execution_child(t_data *data, int i);
 void    execution_parent(t_data *data, int i);
 void    execution(t_data *data);
+int is_directory(const char *path);
 
 /* HEREDOC */
 void    exit_heredoc(t_data *data, char *limiter, char *line);
