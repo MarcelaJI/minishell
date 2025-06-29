@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 18:26:22 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/29 10:08:48 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/29 11:24:27 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,7 @@ void	take_input(t_data *data)
 			data->exit_status = 1;
 		exit_nbr = -1;
 		if (!data->input)
-		{
-			rl_clear_history();
 			break ;
-		}
 		if (!parse_input(data))
 		{
 			alloc_fd_pid_arrays(data);
