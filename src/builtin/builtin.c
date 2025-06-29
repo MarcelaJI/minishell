@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 13:50:23 by iranieri          #+#    #+#             */
-/*   Updated: 2025/06/29 09:04:36 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/29 12:46:21 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ void exec_builtin(t_data *data, int n)
     if (data->cmd_count == 1 && data->out_fds[0])
         close_error(data->out_fds[0], data);
 }
-
 
 int is_builtin(t_data *data, int n)
 {
