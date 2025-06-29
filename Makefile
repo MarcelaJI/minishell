@@ -6,7 +6,7 @@
 #    By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 11:06:40 by ingjimen          #+#    #+#              #
-#    Updated: 2025/06/29 09:29:11 by ingjimen         ###   ########.fr        #
+#    Updated: 2025/06/29 09:34:21 by ingjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRC = src/init/minishell.c \
 	  src/parsing/env.c src/parsing/env_vars.c src/parsing/env_vars_utils.c \
 	  src/init/env_init.c src/init/take_input.c \
 	  src/utils/utils.c src/utils/error.c src/utils/list_utils.c src/utils/list_utils_2.c \
-	  src/execution/execution.c src/execution/execution_utils.c execution_utils_2.c src/execution/heredoc.c \
+	  src/execution/execution.c src/execution/execution_utils.c src/execution/execution_utils_2.c src/execution/heredoc.c \
 	  src/execution/open_files.c src/execution/redirection.c src/execution/signals.c \
 	  src/builtin/builtin.c src/builtin/builtin_utils.c src/builtin/ft_echo.c \
 	  src/builtin/ft_env_unset.c src/builtin/ft_exit.c src/builtin/ft_export.c
