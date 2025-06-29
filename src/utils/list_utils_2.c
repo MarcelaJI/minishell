@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 14:33:19 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/25 09:58:52 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/29 10:13:18 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,17 @@ void	freelist(t_dlist *list)
 	while (list)
 	{
 		if (list->str)
+		{
 			free(list->str);
+			list->str = NULL;
+		}
 		temp = list;
 		list = list->next;
+		temp->next = NULL;
 		free(temp);
+		temp = NULL;
 	}
 }
-
 
 void	refreshindex(t_dlist **list)
 {
