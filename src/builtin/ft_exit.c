@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:21:30 by iranieri          #+#    #+#             */
-/*   Updated: 2025/06/28 19:56:32 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/30 10:28:40 by iranieri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ void    ft_exit_no_params(t_data *data, char **params)
     exit(0);
 }
 
-void    ft_exit_invalid_params(t_data *data, char **params)
+int    ft_exit_invalid_params(t_data *data, char **params)
 {
     ft_putstr_fd(SHELLNAME"exit: ", 2);
     ft_putstr_fd(params[1], 2);
     ft_putendl_fd(": numeric argument required", 2);
     free_str_array(params, 0);
-    free_all(data);
-    exit(255);
+    data->exit_status = 255;
+    return (1); 
 }
 
 void    ft_exit(t_data *data, int n)

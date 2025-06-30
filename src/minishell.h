@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/29 09:44:40 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/30 10:28:57 by iranieri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,7 +209,7 @@ size_t  ft_echo_newline(char **params, int *newline);
 void    ft_unset(t_data *data, int n);
 void    ft_env(t_data *data);
 void    ft_exit(t_data *data, int n);
-void    ft_exit_invalid_params(t_data *data, char **params);
+int    ft_exit_invalid_params(t_data *data, char **params);
 void    ft_exit_builtin_no_params(t_data *data, char **params);
 void    ft_export(t_data *data, int n);
 int ft_export_utils(char *str, t_data *data);
