@@ -6,7 +6,7 @@
 /*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/30 10:28:57 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/06/30 10:32:49 by iranieri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include <signal.h>
 # include <sys/wait.h>
 # include <sys/stat.h>
+# include <string.h>
 
 # define RED		"\x1b[31m"
 # define GREEN		"\x1b[32m"
@@ -36,7 +37,7 @@
 # define BOLD		"\x1b[1m"
 # define RESET		"\x1b[0m"
 # define SHELLNAME	"[shellmi]: "
-# define SHELLPRMPT	CYAN "[shellmi]$ " RESET
+# define SHELL_SUFFIX "/shellmi> "
 
 /* GLOBAL VARIABLE FOR SIGNAL */
 extern int	exit_nbr;
@@ -127,6 +128,7 @@ void	update_pwd(t_dlist *env, t_data *data);
 void	update_shlvl(t_dlist *env, t_data *data);
 void	create_env(t_data *data, char **env);
 void	reset_input(t_data *data);
+char	*get_dynamic_prompt(void);
 void	take_input(t_data *data);
 
 /*  QUOTES  */
