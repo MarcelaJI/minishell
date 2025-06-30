@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 18:26:22 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/30 09:54:46 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/30 10:03:36 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	reset_input(t_data *data)
 	data->pids = NULL;
 }
 
-static char *join_with_free(char *s1, char *s2)
+static char *join_and_free(char *s1, char *s2)
 {
 	char *res;
 	
@@ -45,25 +45,27 @@ static char *join_with_free(char *s1, char *s2)
 	return res;
 }
 
-char	*get_dynamic_prompt(void)
+char *get_dynamic_prompt(void)
 {
 	char	cwd[1024];
 	char	*prompt;
 	char	*tmp;
 
 	if (!getcwd(cwd, sizeof(cwd)))
-		return (ft_strdup(CYAN "[shellmi]$ " RESET));
-	tmp = ft_strjoin(CYAN, cwd);
+		return (ft_strdup(CYAN "[shellmi]> " RESET));
+	tmp = ft_strjoin(CYAN, SHELL_NAME);
 	if (!tmp)
-		return (ft_strdup(CYAN "[shellmi]$ " RESET));
-	prompt = join_with_free(tmp, "> ");
+		return (ft_strdup(CYAN "[shellmi]> " RESET));
+	prompt = join_and_free(tmp, cwd);
 	if (!prompt)
-		return (ft_strdup(CYAN "[shellmi]$ " RESET));
-	tmp = ft_strjoin(prompt, RESET);
-	free(prompt);
+		return (ft_strdup(CYAN "[shellmi]> " RESET));
+	tmp = join_and_free(prompt, "> ");
 	if (!tmp)
-		return (ft_strdup(CYAN "[shellmi]$ " RESET));
-	return tmp;
+		return (ft_strdup(CYAN "[shellmi]> " RESET));
+	prompt = join_and_free(tmp, RESET);
+	if (!prompt)
+		return (ft_strdup(CYAN "[shellmi]> " RESET));
+	return (prompt);
 }
 
 void	take_input(t_data *data)
