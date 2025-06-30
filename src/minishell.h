@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/29 09:44:40 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/30 09:49:46 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@
 # include <signal.h>
 # include <sys/wait.h>
 # include <sys/stat.h>
+# include <string.h>
 
 # define RED		"\x1b[31m"
 # define GREEN		"\x1b[32m"
