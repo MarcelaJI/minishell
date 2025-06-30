@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/30 09:49:46 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/30 09:55:22 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,7 @@ void	update_pwd(t_dlist *env, t_data *data);
 void	update_shlvl(t_dlist *env, t_data *data);
 void	create_env(t_data *data, char **env);
 void	reset_input(t_data *data);
+char	*get_dynamic_prompt(void);
 void	take_input(t_data *data);
 
 /*  QUOTES  */
