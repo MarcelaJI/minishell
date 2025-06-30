@@ -6,7 +6,7 @@
 #    By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 11:06:40 by ingjimen          #+#    #+#              #
-#    Updated: 2025/06/29 11:40:47 by ingjimen         ###   ########.fr        #
+#    Updated: 2025/06/30 10:05:18 by ingjimen         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,6 @@ $(NAME): $(OBJ)
 	@echo " |___/_| |_|\\___|_|_|_| |_| |_|_|"
 	@printf "$(YELLOW)      By ingjimen & iranieri\n"
 	@echo ""
-	@printf "$(GREEN)BUILD SUCCESSFUL!🐚$(NC)\n"
 
 %.o: %.c
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@ > /dev/null
