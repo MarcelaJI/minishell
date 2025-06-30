@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/30 09:55:22 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/06/30 10:01:15 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 # define BOLD		"\x1b[1m"
 # define RESET		"\x1b[0m"
 # define SHELLNAME	"[shellmi]: "
-# define SHELLPRMPT	CYAN "[shellmi]$ " RESET
+# define SHELL_NAME "[shellmi] "
 
 /* GLOBAL VARIABLE FOR SIGNAL */
 extern int	exit_nbr;
