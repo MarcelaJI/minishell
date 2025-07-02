@@ -6,7 +6,7 @@
 /*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 08:47:56 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/07/02 10:44:59 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:15:39 by iranieri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,27 +71,31 @@ char	*find_path_in_env(char **env)
 
 char	*search_path(char *cmd, char **env, t_data *data)
 {
-	char	**env_words;
-	char	*path;
-	int		i;
 	char	*path_env;
 
 	if (!cmd || !cmd[0])
 		return (cmd);
 	if (ft_strchr(cmd, '/'))
 	{
-    	// Si el archivo existe y es ejecutable, devuelve cmd tal cual
-    	if (access(cmd, X_OK) == 0)
-       	 	return (cmd);
-    	// Si no existe o no es ejecutable, retorna NULL para señal de error
-    	return (NULL);
+		if (access(cmd, X_OK) == 0)
+			return (cmd);
+		return (NULL);
 	}
 	path_env = find_path_in_env(env);
 	if (!path_env)
 		return (NULL);
-	env_words = ft_split(find_path_in_env(env), ':');
+	return (search_in_path(cmd, path_env, data));
+}
+
+char	*search_in_path(char *cmd, char *path_env, t_data *data)
+{
+	char	**env_words;
+	char	*path;
+	int		i;
+
+	env_words = ft_split(path_env, ':');
 	if (!env_words)
-		return (cmd);
+		return (NULL);
 	i = -1;
 	while (env_words[++i])
 	{
@@ -106,33 +110,5 @@ char	*search_path(char *cmd, char **env, t_data *data)
 		free(path);
 	}
 	free_str_array(env_words, 0);
-	return (cmd);
-}
-
-char	**convert_env_to_strings(t_data *data)
-{
-	int i;
-	t_dlist *temp;
-	char **env;
-
-	i = 0;
-	temp = data->env;
-	env = NULL;
-	while (temp)
-	{
-		if (ft_strchr(temp->str, '='))
-			i++;
-		temp = temp->next;
-	}
-	env = ft_calloc(i + 1, sizeof(char *));
-	check_memory_failure(data, NULL, env, 2);
-	i = 0;
-	temp = data->env;
-	while (temp)
-	{
-		if (ft_strchr(temp->str, '='))
-			env[i++] = ms_strdup(temp->str, data);
-		temp = temp->next;
-	}
-	return (env);
+	return (NULL);
 }
