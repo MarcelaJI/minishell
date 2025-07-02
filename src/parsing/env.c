@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 08:47:56 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/25 08:51:32 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/02 10:44:59 by iranieri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,25 @@ char	*search_path(char *cmd, char **env, t_data *data)
 	char	**env_words;
 	char	*path;
 	int		i;
+	char	*path_env;
 
 	if (!cmd || !cmd[0])
 		return (cmd);
-	i = -1;
+	if (ft_strchr(cmd, '/'))
+	{
+    	// Si el archivo existe y es ejecutable, devuelve cmd tal cual
+    	if (access(cmd, X_OK) == 0)
+       	 	return (cmd);
+    	// Si no existe o no es ejecutable, retorna NULL para señal de error
+    	return (NULL);
+	}
+	path_env = find_path_in_env(env);
+	if (!path_env)
+		return (NULL);
 	env_words = ft_split(find_path_in_env(env), ':');
 	if (!env_words)
 		return (cmd);
+	i = -1;
 	while (env_words[++i])
 	{
 		path = ms_strjoin(env_words[i], "/", 0, data);
