@@ -39,9 +39,9 @@ static long int	ft_len(int n)
 
 char	*ft_itoa(int n)
 {
-	char				*s;
-	long int			len;
-	unsigned int		number;
+	char			*s;
+	long int		len;
+	unsigned int	number;
 
 	len = ft_len(n);
 	s = (char *)malloc(sizeof(char) * (len + 1));
@@ -60,4 +60,3 @@ char	*ft_itoa(int n)
 	s = ft_char(s, number, len);
 	return (s);
 }
-
