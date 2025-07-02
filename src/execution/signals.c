@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signals.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 16:38:11 by iranieri          #+#    #+#             */
-/*   Updated: 2025/06/28 18:40:46 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/07/02 09:10:44 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,9 @@ void    readline_sig(int sig)
         rl_redisplay();
         exit_nbr = SIGINT;
     }
+}
+
+void ignore_sigquit(int sig)
+{
+    (void)sig;
 }

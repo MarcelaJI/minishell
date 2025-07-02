@@ -54,6 +54,7 @@ void    exec_single_cmd(t_data *data, int n)
 void    execution_child(t_data *data, int i)
 {
     signal(SIGQUIT, SIG_DFL);
+    signal(SIGQUIT, SIG_DFL);
     open_files(data, data->tokens, i);
     dupdup(data, i);
     exec_single_cmd(data, i);
@@ -62,6 +63,7 @@ void    execution_child(t_data *data, int i)
 void    execution_parent(t_data *data, int i)
 {
     signal(SIGINT, do_nothing);
+    signal(SIGQUIT, SIG_IGN);
     data->pids[i] = fork();
     if (data->pids[i] == 0)
         execution_child(data, i);
@@ -76,6 +78,7 @@ void    execution_parent(t_data *data, int i)
     if (data->cmd_count > 1)
         data->prev_pipe_fd = data->pipe_fds[0];
 }
+
 
 void    execution(t_data *data)
 {
