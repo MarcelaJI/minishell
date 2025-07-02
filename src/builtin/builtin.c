@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 13:50:23 by iranieri          #+#    #+#             */
-/*   Updated: 2025/06/29 12:46:21 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:18:22 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	exec_single_builtin(t_data *data)
 {
 	open_heredoc(data, data->tokens, 0);
 	open_files(data, data->tokens, 0);
-	if (data->open_fail == 1 || exit_nbr == SIGINT)
+	if (data->open_fail == 1 || g_exit_nbr == SIGINT)
 		return ;
 	exec_builtin(data, 0);
 	return ;

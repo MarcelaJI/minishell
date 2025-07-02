@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 18:26:22 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/07/02 09:47:49 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:14:49 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,9 @@ void	take_input(t_data *data)
 		prompt = get_dynamic_prompt();
 		data->input = readline(prompt);
 		free(prompt);
-		if (exit_nbr == SIGINT)
+		if (g_exit_nbr == SIGINT)
 			data->exit_status = 1;
-		exit_nbr = -1;
+		g_exit_nbr = -1;
 		if (!data->input)
 			break ;
 		if (!parse_input(data))

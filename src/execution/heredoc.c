@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   heredoc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 10:30:12 by iranieri          #+#    #+#             */
-/*   Updated: 2025/06/28 19:45:53 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:15:32 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	heredoc_child(t_data *data, t_dlist *node)
 	while (1)
 	{
 		line = readline("> ");
-		if (exit_nbr == SIGINT)
+		if (g_exit_nbr == SIGINT)
 		{
 			if (line)
 				free(line);
@@ -95,7 +95,7 @@ void	open_heredoc(t_data *data, t_dlist *node, int n)
 	node = skip_instructions(node, n);
 	while (node && node->token != PIPE)
 	{
-		if (node->token == HERE_DOC && exit_nbr != SIGINT)
+		if (node->token == HERE_DOC && g_exit_nbr != SIGINT)
 		{
 			if (in_fd)
 				close_error(in_fd, data);
@@ -103,7 +103,7 @@ void	open_heredoc(t_data *data, t_dlist *node, int n)
 		}
 		node = node->next;
 	}
-	if (exit_nbr == SIGINT && in_fd)
+	if (g_exit_nbr == SIGINT && in_fd)
 		close_error(in_fd, data);
 	else
 		data->in_fds[n] = in_fd;

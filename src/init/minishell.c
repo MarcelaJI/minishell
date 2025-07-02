@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 18:39:36 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/28 20:09:34 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:22:37 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-int		exit_nbr;
+int		g_exit_nbr;
 
 void	reset_data(t_data *data)
 {
-	exit_nbr = -1;
+	g_exit_nbr = -1;
 	data->input = NULL;
 	data->instructions = NULL;
 	data->tokens = NULL;

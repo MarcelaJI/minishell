@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 16:38:11 by iranieri          #+#    #+#             */
-/*   Updated: 2025/07/02 09:49:42 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:15:52 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ void	heredoc_signal(int sig)
 {
 	if (sig == SIGINT)
 	{
-		exit_nbr = SIGINT;
+		g_exit_nbr = SIGINT;
 		close(STDIN_FILENO);
 	}
 }
 
 void	do_nothing(int sig)
 {
-	exit_nbr = sig;
+	g_exit_nbr = sig;
 }
 
 void	readline_sig(int sig)
@@ -34,6 +34,6 @@ void	readline_sig(int sig)
 		write(1, RESET "\n", ft_strlen(RESET) + 1);
 		rl_on_new_line();
 		rl_redisplay();
-		exit_nbr = SIGINT;
+		g_exit_nbr = SIGINT;
 	}
 }

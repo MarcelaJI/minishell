@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/07/02 09:49:51 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:13:34 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@
 # define SHELL_SUFFIX "/shellmi> "
 
 /* GLOBAL VARIABLE FOR SIGNAL */
-extern int			exit_nbr;
+extern int			g_exit_nbr;
 
 /* FLAGS FOR TOKEN TYPES */
 enum				e_type

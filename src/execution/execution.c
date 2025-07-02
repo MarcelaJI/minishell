@@ -84,10 +84,10 @@ void	execution(t_data *data)
 	int	i;
 
 	i = 0;
-	while (i < data->cmd_count && exit_nbr != SIGINT)
+	while (i < data->cmd_count && g_exit_nbr != SIGINT)
 	{
 		open_heredoc(data, data->tokens, i);
-		if (exit_nbr == SIGINT)
+		if (g_exit_nbr == SIGINT)
 		{
 			if (data->in_fds[i])
 				close_error(data->in_fds[i], data);
@@ -99,9 +99,9 @@ void	execution(t_data *data)
 		execution_parent(data, i);
 		i++;
 	}
-	if (exit_nbr == SIGINT)
+	if (g_exit_nbr == SIGINT)
 		data->exit_status = 130;
 	else
 		exit_status(data->pids[i - 1], data);
-	exit_nbr = -1;
+	g_exit_nbr = -1;
 }
