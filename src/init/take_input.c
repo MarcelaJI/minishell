@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 18:26:22 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/07/02 11:14:49 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:41:08 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,10 @@ void	take_input(t_data *data)
 {
 	char	*prompt;
 
-	signal(SIGINT, readline_sig);
-	signal(SIGQUIT, SIG_IGN);
 	while (1)
 	{
+		signal(SIGINT, readline_sig);
+		signal(SIGQUIT, SIG_IGN);
 		prompt = get_dynamic_prompt();
 		data->input = readline(prompt);
 		free(prompt);
