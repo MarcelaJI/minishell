@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 16:38:11 by iranieri          #+#    #+#             */
-/*   Updated: 2025/07/02 09:10:44 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/02 09:49:42 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,3 @@ void    readline_sig(int sig)
     }
 }
 
-void ignore_sigquit(int sig)
-{
-    (void)sig;
-}

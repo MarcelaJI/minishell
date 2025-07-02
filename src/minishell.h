@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/07/02 09:11:08 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/02 09:49:51 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,7 +197,6 @@ void    dupdup(t_data *data, int n);
 void    heredoc_signal(int sig);
 void    do_nothing(int sig);
 void    readline_sig(int sig);
-void	ignore_sigquit(int sig);
 
 /* BUILT IN */
 int is_builtin(t_data *data, int n);

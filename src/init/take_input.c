@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 18:26:22 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/07/02 09:11:34 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/02 09:47:49 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,28 +65,30 @@ char *get_dynamic_prompt(void)
 	return (tmp);
 }
 
-void	take_input(t_data *data)
+void take_input(t_data *data)
 {
-	while (1)
-	{
-		signal(SIGINT, readline_sig);
-		signal(SIGQUIT, ignore_sigquit);
-		char *prompt = get_dynamic_prompt();
-		data->input = readline(prompt);
-		free(prompt);
-		if (exit_nbr == SIGINT)
-			data->exit_status = 1;
-		exit_nbr = -1;
-		if (!data->input)
-			break ;
-		if (!parse_input(data))
-		{
-			alloc_fd_pid_arrays(data);
-			if (data->cmd_count == 1 && is_builtin(data, 0))
-				exec_single_builtin(data);
-			else
-				execution(data);
-		}
-		reset_input(data);
-	}
+	char *prompt;
+
+    signal(SIGINT, readline_sig);
+    signal(SIGQUIT, SIG_IGN);
+    while (1)
+    {
+        prompt = get_dynamic_prompt();
+        data->input = readline(prompt);
+        free(prompt);
+        if (exit_nbr == SIGINT)
+            data->exit_status = 1;
+        exit_nbr = -1;
+        if (!data->input)
+            break;
+        if (!parse_input(data))
+        {
+            alloc_fd_pid_arrays(data);
+            if (data->cmd_count == 1 && is_builtin(data, 0))
+                exec_single_builtin(data);
+            else
+                execution(data);
+        }
+        reset_input(data);
+    }
 }
