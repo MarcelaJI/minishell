@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/07/02 11:13:34 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:27:49 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ char				*get_env_var_str(char *str, t_data *data);
 t_dlist				*get_env_var(char *var, t_dlist *env);
 char				*find_path_in_env(char **env);
 char				*search_path(char *cmd, char **env, t_data *data);
+char				*search_in_path(char *cmd, char *path_env, t_data *data);
 char				**convert_env_to_strings(t_data *data);
 void				copy_env_var(char *env_str, size_t *j, char *exp);
 void				expand_env_vars_loop(char *str, char *exp, char *env_str,

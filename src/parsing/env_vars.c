@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_vars.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 08:48:28 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/25 08:55:27 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:15:01 by iranieri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,32 @@ char	*expand_env_vars(char *str, t_data *data)
 	expand_env_vars_loop(str, exp, env_str, data);
 	free(str);
 	return (exp);
+}
+
+char	**convert_env_to_strings(t_data *data)
+{
+	int i;
+	t_dlist *temp;
+	char **env;
+
+	i = 0;
+	temp = data->env;
+	env = NULL;
+	while (temp)
+	{
+		if (ft_strchr(temp->str, '='))
+			i++;
+		temp = temp->next;
+	}
+	env = ft_calloc(i + 1, sizeof(char *));
+	check_memory_failure(data, NULL, env, 2);
+	i = 0;
+	temp = data->env;
+	while (temp)
+	{
+		if (ft_strchr(temp->str, '='))
+			env[i++] = ms_strdup(temp->str, data);
+		temp = temp->next;
+	}
+	return (env);
 }
