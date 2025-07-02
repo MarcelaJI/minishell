@@ -12,29 +12,28 @@
 
 #include "../minishell.h"
 
-void    heredoc_signal(int sig)
+void	heredoc_signal(int sig)
 {
-    if (sig == SIGINT)
-    {
-        exit_nbr = SIGINT;
-        close(STDIN_FILENO);
-    }
+	if (sig == SIGINT)
+	{
+		exit_nbr = SIGINT;
+		close(STDIN_FILENO);
+	}
 }
 
-void    do_nothing(int sig)
+void	do_nothing(int sig)
 {
-    exit_nbr = sig;
+	exit_nbr = sig;
 }
 
-void    readline_sig(int sig)
+void	readline_sig(int sig)
 {
-    if (sig == SIGINT)
-    {
-        rl_replace_line("", 0);
-        write(1, RESET"\n", ft_strlen(RESET) + 1);
-        rl_on_new_line();
-        rl_redisplay();
-        exit_nbr = SIGINT;
-    }
+	if (sig == SIGINT)
+	{
+		rl_replace_line("", 0);
+		write(1, RESET "\n", ft_strlen(RESET) + 1);
+		rl_on_new_line();
+		rl_redisplay();
+		exit_nbr = SIGINT;
+	}
 }
-
