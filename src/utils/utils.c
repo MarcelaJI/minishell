@@ -42,8 +42,8 @@ char	*ms_strjoin(char *s1, char *s2, int f, t_data *data)
 
 char	*ms_strdup(const char *s, t_data *data)
 {
-	char		*dup;
-	int			i;
+	char	*dup;
+	int		i;
 
 	i = 0;
 	dup = ft_calloc(sizeof(char), (ft_strlen(s) + 1));
@@ -103,8 +103,6 @@ void	free_all(t_data *data)
 		free(data->pids);
 }
 
-
-
 void	free_str_array(char **arr, size_t n)
 {
 	size_t	i;
@@ -132,4 +130,3 @@ void	free_str_array(char **arr, size_t n)
 	}
 	free(arr);
 }
-

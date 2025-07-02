@@ -99,9 +99,9 @@ char	*search_path(char *cmd, char **env, t_data *data)
 
 char	**convert_env_to_strings(t_data *data)
 {
-	int		i;
-	t_dlist	*temp;
-	char	**env;
+	int i;
+	t_dlist *temp;
+	char **env;
 
 	i = 0;
 	temp = data->env;

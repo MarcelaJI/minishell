@@ -38,8 +38,8 @@ void	expand_env_vars_loop(char *str, char *exp, char *env_str, t_data *data)
 	{
 		update_double_quote_flag(str, &dquote, &squote, &i);
 		update_single_quote_flag(str, &squote, &dquote, &i);
-		if (str[i] == '$' && (!check_invalid_chars_env_var(str[i + 1])
-				|| str[i + 1] == '?' || str[i + 1] == '$') && !squote)
+		if (str[i] == '$' && (!check_invalid_chars_env_var(str[i + 1]) || str[i
+				+ 1] == '?' || str[i + 1] == '$') && !squote)
 		{
 			env_str = get_env_var_str(str + i + 1, data);
 			if (env_str)

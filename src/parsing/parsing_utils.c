@@ -14,10 +14,9 @@
 
 int	check_valid_char(int c)
 {
-	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')
-		|| (c >= '0' && c <= '9') || (c == '-') || (c == '.')
-		|| (c == '/') || (c == '_') || (c == ',') || (c == ':')
-		|| (c == '$') || (c == '^') || (c == '+'))
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0'
+			&& c <= '9') || (c == '-') || (c == '.') || (c == '/') || (c == '_')
+		|| (c == ',') || (c == ':') || (c == '$') || (c == '^') || (c == '+'))
 		return (1);
 	return (0);
 }
@@ -67,7 +66,7 @@ int	checkfornum(char *s)
 
 int	cmp_up_to_equal(const char *s1, const char *s2)
 {
-	size_t	i;
+	size_t i;
 
 	i = 0;
 	if (!s1 && !s2)
@@ -76,8 +75,7 @@ int	cmp_up_to_equal(const char *s1, const char *s2)
 		return (-1);
 	if (!s2)
 		return (1);
-	while (s1[i] == s2[i] && s1[i] && s2[i]
-		&& s1[i] != '=' && s2[i] != '=')
+	while (s1[i] == s2[i] && s1[i] && s2[i] && s1[i] != '=' && s2[i] != '=')
 		i++;
 	if ((s1[i] == '=' && !s2[i]) || (!s1[i] && s2[i] == '='))
 		return (0);

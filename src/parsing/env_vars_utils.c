@@ -39,8 +39,8 @@ size_t	get_exp_len(char *str, t_data *data)
 	while (str[i])
 	{
 		skip_quoted_single_block(str, &dquote, NULL, &i);
-		if (str[i] == '$' && (!check_invalid_chars_env_var(str[i + 1])
-				|| str[i + 1] == '?' || str[i + 1] == '$'))
+		if (str[i] == '$' && (!check_invalid_chars_env_var(str[i + 1]) || str[i
+				+ 1] == '?' || str[i + 1] == '$'))
 		{
 			get_exp_len_extension(str + i + 1, data, &len);
 			i++;
@@ -53,15 +53,15 @@ size_t	get_exp_len(char *str, t_data *data)
 
 int	check_invalid_chars_env_var(char c)
 {
-	if (c != '_' && !(c >= 'a' && c <= 'z')
-		&& !(c >= 'A' && c <= 'Z') && !(c >= '0' && c <= '9'))
+	if (c != '_' && !(c >= 'a' && c <= 'z') && !(c >= 'A' && c <= 'Z')
+		&& !(c >= '0' && c <= '9'))
 		return (1);
 	return (0);
 }
 
 size_t	env_var_name_len(char *str)
 {
-	size_t	var_len;
+	size_t var_len;
 
 	var_len = 0;
 	if (ft_isdigit(str[0]) || str[0] == '?' || str[0] == '$')

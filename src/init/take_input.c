@@ -36,16 +36,16 @@ void	reset_input(t_data *data)
 	data->pids = NULL;
 }
 
-static char *join_and_free(char *s1, char *s2)
+static char	*join_and_free(char *s1, char *s2)
 {
-	char *res;
-	
+	char	*res;
+
 	res = ft_strjoin(s1, s2);
 	free(s1);
 	return (res);
 }
 
-char *get_dynamic_prompt(void)
+char	*get_dynamic_prompt(void)
 {
 	char	cwd[1024];
 	char	*prompt;
@@ -65,30 +65,30 @@ char *get_dynamic_prompt(void)
 	return (tmp);
 }
 
-void take_input(t_data *data)
+void	take_input(t_data *data)
 {
-	char *prompt;
+	char	*prompt;
 
-    signal(SIGINT, readline_sig);
-    signal(SIGQUIT, SIG_IGN);
-    while (1)
-    {
-        prompt = get_dynamic_prompt();
-        data->input = readline(prompt);
-        free(prompt);
-        if (exit_nbr == SIGINT)
-            data->exit_status = 1;
-        exit_nbr = -1;
-        if (!data->input)
-            break;
-        if (!parse_input(data))
-        {
-            alloc_fd_pid_arrays(data);
-            if (data->cmd_count == 1 && is_builtin(data, 0))
-                exec_single_builtin(data);
-            else
-                execution(data);
-        }
-        reset_input(data);
-    }
+	signal(SIGINT, readline_sig);
+	signal(SIGQUIT, SIG_IGN);
+	while (1)
+	{
+		prompt = get_dynamic_prompt();
+		data->input = readline(prompt);
+		free(prompt);
+		if (exit_nbr == SIGINT)
+			data->exit_status = 1;
+		exit_nbr = -1;
+		if (!data->input)
+			break ;
+		if (!parse_input(data))
+		{
+			alloc_fd_pid_arrays(data);
+			if (data->cmd_count == 1 && is_builtin(data, 0))
+				exec_single_builtin(data);
+			else
+				execution(data);
+		}
+		reset_input(data);
+	}
 }

@@ -12,35 +12,35 @@
 
 #include "../minishell.h"
 
-int is_valid_token_char(char c)
+int	is_valid_token_char(char c)
 {
-    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') ||
-        (c >= '0' && c <= '9') || (c == '-') || (c == '.') ||
-        (c == '/') || (c == '_') || (c == ',') || (c == ':') ||
-        (c == '$') || (c == '\"') || (c == '\'') || (c == '+'))
-        return (1);
-    return (0);
+	if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') || (c >= '0'
+			&& c <= '9') || (c == '-') || (c == '.') || (c == '/') || (c == '_')
+		|| (c == ',') || (c == ':') || (c == '$') || (c == '\"') || (c == '\'')
+			|| (c == '+'))
+		return (1);
+	return (0);
 }
 
-int is_redirection_token(t_dlist *node)
+int	is_redirection_token(t_dlist *node)
 {
-    if (!node)
-        return 0;
-    if (node->token == INF || node->token == OUTF || node->token == OUTF_APD)
-        return 1;
-    return 0;
+	if (!node)
+		return (0);
+	if (node->token == INF || node->token == OUTF || node->token == OUTF_APD)
+		return (1);
+	return (0);
 }
 
-int has_command_before_pipe(t_dlist *node)
+int	has_command_before_pipe(t_dlist *node)
 {
-    node = node->prev;
-    if (node->token == PIPE)
-        return 0;
-    while (node && node->token != PIPE)
-    {
-        if (node->token == CMD)
-            return 1;
-        node = node->prev;
-    }
-    return 0;
+	node = node->prev;
+	if (node->token == PIPE)
+		return (0);
+	while (node && node->token != PIPE)
+	{
+		if (node->token == CMD)
+			return (1);
+		node = node->prev;
+	}
+	return (0);
 }

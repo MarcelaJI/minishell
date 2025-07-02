@@ -18,7 +18,7 @@ void	check_memory_failure(t_data *data, void *ptr, char **dptr, int f)
 	{
 		if (!ptr)
 		{
-			ft_putendl_fd(SHELLNAME"Memory allocation failure", 2);
+			ft_putendl_fd(SHELLNAME "Memory allocation failure", 2);
 			free_all(data);
 			exit(1);
 		}
@@ -27,7 +27,7 @@ void	check_memory_failure(t_data *data, void *ptr, char **dptr, int f)
 	{
 		if (!dptr)
 		{
-			ft_putendl_fd(SHELLNAME"Memory allocation failure", 2);
+			ft_putendl_fd(SHELLNAME "Memory allocation failure", 2);
 			free_all(data);
 			exit(1);
 		}
@@ -49,7 +49,7 @@ int	error(char *str, char *token, t_data *data)
 
 void	ms_perror(t_data *data)
 {
-	perror(SHELLNAME"error");
+	perror(SHELLNAME "error");
 	free_all(data);
 	exit(1);
 }

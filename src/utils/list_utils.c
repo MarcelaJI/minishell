@@ -51,7 +51,7 @@ void	node_addfront(t_dlist **list, t_dlist *node)
 
 t_dlist	*newnode(char *str)
 {
-	t_dlist	*node;
+	t_dlist *node;
 
 	node = ft_calloc(sizeof(t_dlist), 1);
 	if (!node)

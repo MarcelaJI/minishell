@@ -48,15 +48,15 @@ void	update_oldpwd(t_dlist *env, t_data *data)
 		if (!ft_strncmp("OLDPWD=", temp->str, 7))
 		{
 			oldpwd = temp->str;
-			temp->str = ms_strjoin
-				("OLDPWD=", get_env_var_str("PWD", data), 2, data);
+			temp->str = ms_strjoin("OLDPWD=", get_env_var_str("PWD", data), 2,
+					data);
 			free(oldpwd);
 			return ;
 		}
 		temp = temp->next;
 	}
-	node_addback(&env, newnode
-		(ms_strjoin("OLDPWD=", get_env_var_str("PWD", data), 2, data)));
+	node_addback(&env, newnode(ms_strjoin("OLDPWD=", get_env_var_str("PWD",
+					data), 2, data)));
 }
 
 void	update_pwd(t_dlist *env, t_data *data)
@@ -103,8 +103,8 @@ void	update_shlvl(t_dlist *env, t_data *data)
 
 void	create_env(t_data *data, char **env)
 {
-	int		i;
-	t_dlist	*temp;
+	int i;
+	t_dlist *temp;
 
 	i = 0;
 	if (env && env[i])

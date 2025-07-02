@@ -20,9 +20,8 @@ void	copy_full_word(char *input, char *str, size_t *a, size_t *b)
 
 	i = *a;
 	j = *b;
-	while (input[i]
-		&& (!is_whitespace(input[i]) || input[i] == '\'' || input[i] == '\"')
-		&& !check_redir(input + i))
+	while (input[i] && (!is_whitespace(input[i]) || input[i] == '\''
+			|| input[i] == '\"') && !check_redir(input + i))
 	{
 		if (input[i] == '\'' || input[i] == '\"')
 		{
@@ -43,9 +42,9 @@ void	copy_full_word(char *input, char *str, size_t *a, size_t *b)
 
 char	*fix_input(char *input, t_data *data)
 {
-	char	*str;
-	size_t	i;
-	size_t	j;
+	char *str;
+	size_t i;
+	size_t j;
 
 	str = ft_calloc((ft_strlen(input) + 1) * 2, sizeof(char));
 	check_memory_failure(data, str, NULL, 1);
@@ -62,8 +61,8 @@ char	*fix_input(char *input, t_data *data)
 				str[j++] = input[i++];
 			str[j++] = ' ';
 		}
-		if (input[i] && (!is_whitespace(input[i])
-				|| input[i] == '\'' || input[i] == '\"'))
+		if (input[i] && (!is_whitespace(input[i]) || input[i] == '\''
+				|| input[i] == '\"'))
 			copy_full_word(input, str, &i, &j);
 	}
 	free(input);

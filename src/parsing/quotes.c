@@ -92,10 +92,8 @@ void	strip_all_token_quotes(t_data *data)
 		{
 			new_str = strip_quotes_from_string(temp->str, data);
 			free(temp->str);
-			temp->str = new_str; 
+			temp->str = new_str;
 		}
 		temp = temp->next;
 	}
 }
-
-

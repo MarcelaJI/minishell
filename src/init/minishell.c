@@ -12,7 +12,7 @@
 
 #include "../minishell.h"
 
-int	exit_nbr;
+int		exit_nbr;
 
 void	reset_data(t_data *data)
 {
@@ -32,7 +32,7 @@ void	reset_data(t_data *data)
 
 int	main(int ac, char **av, char **env)
 {
-	t_data	data;
+	t_data data;
 
 	if (ac != 1)
 		return (1);
