@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   signals.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 16:38:11 by iranieri          #+#    #+#             */
-/*   Updated: 2025/07/02 11:15:52 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/06 20:20:33 by iranieri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	readline_sig(int sig)
 	if (sig == SIGINT)
 	{
 		rl_replace_line("", 0);
-		write(1, RESET "\n", ft_strlen(RESET) + 1);
+		write(1, "\n", 1);
 		rl_on_new_line();
 		rl_redisplay();
 		g_exit_nbr = SIGINT;
