@@ -48,7 +48,10 @@ void	exec_single_cmd(t_data *data, int n)
 		exec_builtin(data, n);
 	else
 		exec_external_cmd(data, n);
-	exit(127 - (errno == EACCES));
+	if (errno == EACCES)
+		exit(126);
+	else
+		exit(127);
 }
 
 void	execution_child(t_data *data, int i)

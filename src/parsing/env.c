@@ -6,7 +6,7 @@
 /*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 08:47:56 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/07/02 11:15:39 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/07/06 12:41:30 by iranieri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ char	*search_path(char *cmd, char **env, t_data *data)
 		return (cmd);
 	if (ft_strchr(cmd, '/'))
 	{
-		if (access(cmd, X_OK) == 0)
+		if (access(cmd, F_OK) == 0)
 			return (cmd);
 		return (NULL);
 	}
