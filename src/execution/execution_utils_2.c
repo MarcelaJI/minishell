@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execution_utils_2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 09:22:11 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/29 09:43:52 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/06 12:56:23 by iranieri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,15 @@ void	exec_external_cmd(t_data *data, int n)
 	execve_arr[0] = search_path(execve_arr[0], env, data);
 	execve(execve_arr[0], execve_arr, env);
 	execve_fail(cmd, execve_arr, env, data);
+}
+
+
+void	alloc_fd_pid_arrays(t_data *data)
+{
+	data->in_fds = ft_calloc(data->cmd_count, sizeof(int));
+	check_memory_failure(data, data->in_fds, NULL, 1);
+	data->out_fds = ft_calloc(data->cmd_count, sizeof(int));
+	check_memory_failure(data, data->out_fds, NULL, 1);
+	data->pids = ft_calloc(data->cmd_count, sizeof(pid_t));
+	check_memory_failure(data, data->pids, NULL, 1);
 }
