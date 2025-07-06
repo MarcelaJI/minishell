@@ -6,7 +6,7 @@
 /*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/07/06 12:56:51 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/07/06 21:05:49 by iranieri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,7 +173,8 @@ void				set_cmd_count(t_data *data);
 char				**create_exec_array(t_data *data, int n);
 void				convert_tokens(t_data *data);
 void				exit_status(pid_t pid, t_data *data);
-void	handle_process_status(pid_t temp, pid_t pid, int status, int *last_status, int *sig_exit);
+void				handle_process_status(pid_t temp, pid_t pid, int status,
+						int *last_status, int *sig_exit);
 void				alloc_fd_pid_arrays(t_data *data);
 void				execve_fail(char *cmd, char **execve_arr, char **env,
 						t_data *data);
@@ -215,7 +216,6 @@ void				exec_single_builtin(t_data *data);
 void				builtin_exit(t_data *data, int exit_status);
 void				ft_pwd(t_data *data);
 void				ft_cd(t_data *data, int n);
-void				ft_cd_utils(char **params, char *dir, t_data *data);
 void				ft_echo(t_data *data, int n);
 size_t				ft_echo_newline(char **params, int *newline);
 void				ft_unset(t_data *data, int n);

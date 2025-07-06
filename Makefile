@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+         #
+#    By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/24 11:06:40 by ingjimen          #+#    #+#              #
-#    Updated: 2025/06/30 10:05:18 by ingjimen         ###   ########.fr        #
+#    Updated: 2025/07/06 21:07:16 by iranieri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRC = src/init/minishell.c \
           src/utils/utils.c src/utils/error.c src/utils/list_utils.c src/utils/list_utils_2.c \
           src/execution/execution.c src/execution/execution_utils.c src/execution/execution_utils_2.c src/execution/heredoc.c \
           src/execution/open_files.c src/execution/redirection.c src/execution/signals.c \
-          src/builtin/builtin.c src/builtin/builtin_utils.c src/builtin/ft_echo.c \
+          src/builtin/builtin.c src/builtin/ft_cd.c src/builtin/ft_echo.c \
           src/builtin/ft_env_unset.c src/builtin/ft_exit.c src/builtin/ft_export.c
 
 OBJ = $(SRC:.c=.o)
