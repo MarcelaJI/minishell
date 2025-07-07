@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 10:51:55 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/07/06 21:05:49 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:47:35 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,12 @@
 
 /* GLOBAL VARIABLE FOR SIGNAL */
 extern int			g_exit_nbr;
+
+typedef struct s_status_info
+{
+	int				*last_status;
+	int				*sig_exit;
+}					t_status_info;
 
 /* FLAGS FOR TOKEN TYPES */
 enum				e_type
@@ -174,7 +180,7 @@ char				**create_exec_array(t_data *data, int n);
 void				convert_tokens(t_data *data);
 void				exit_status(pid_t pid, t_data *data);
 void				handle_process_status(pid_t temp, pid_t pid, int status,
-						int *last_status, int *sig_exit);
+						t_status_info *info);
 void				alloc_fd_pid_arrays(t_data *data);
 void				execve_fail(char *cmd, char **execve_arr, char **env,
 						t_data *data);

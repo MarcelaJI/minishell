@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execution_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/15 19:24:26 by iranieri          #+#    #+#             */
-/*   Updated: 2025/07/06 12:56:16 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:47:09 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,19 +83,22 @@ void	convert_tokens(t_data *data)
 
 void	exit_status(pid_t pid, t_data *data)
 {
-	pid_t	temp;
-	int		status;
-	int		last_status;
-	int		sig_exit;
+	pid_t			temp;
+	int				status;
+	int				last_status;
+	int				sig_exit;
+	t_status_info	info;
 
 	last_status = 0;
 	sig_exit = 0;
+	info.last_status = &last_status;
+	info.sig_exit = &sig_exit;
 	while (1)
 	{
 		temp = wait(&status);
 		if (temp <= 0)
 			break ;
-		handle_process_status(temp, pid, status, &last_status, &sig_exit);
+		handle_process_status(temp, pid, status, &info);
 	}
 	if (sig_exit)
 		data->exit_status = sig_exit;
@@ -103,7 +106,8 @@ void	exit_status(pid_t pid, t_data *data)
 		data->exit_status = last_status;
 }
 
-void	handle_process_status(pid_t temp, pid_t pid, int status, int *last_status, int *sig_exit)
+void	handle_process_status(pid_t temp, pid_t pid, int status,
+			t_status_info *info)
 {
 	int	sig;
 
@@ -114,13 +118,13 @@ void	handle_process_status(pid_t temp, pid_t pid, int status, int *last_status, 
 			ft_putendl_fd("Quit", 2);
 		else if (sig == SIGINT)
 			ft_putchar_fd('\n', 2);
-		*sig_exit = 128 + sig;
+		*(info->sig_exit) = 128 + sig;
 	}
 	if (temp == pid)
 	{
 		if (WIFEXITED(status))
-			*last_status = WEXITSTATUS(status);
+			*(info->last_status) = WEXITSTATUS(status);
 		else if (WIFSIGNALED(status))
-			*last_status = 128 + WTERMSIG(status);
+			*(info->last_status) = 128 + WTERMSIG(status);
 	}
 }

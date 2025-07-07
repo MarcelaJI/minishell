@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:21:30 by iranieri          #+#    #+#             */
-/*   Updated: 2025/07/07 14:17:02 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:50:03 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,10 @@ void	ft_exit(t_data *data, int n)
 	if (!params[1])
 		ft_exit_no_params(data, params);
 	if (params[1] && !checkfornum(params[1]))
-		return (ft_exit_invalid_params(data, params));
+	{
+		ft_exit_invalid_params(data, params);
+		return ;
+	}
 	if (params[2])
 	{
 		error("exit: too many arguments", NULL, data);
