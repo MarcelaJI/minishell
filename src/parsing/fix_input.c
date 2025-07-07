@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fix_input.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 13:09:45 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/24 13:10:49 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:33:25 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ void	copy_full_word(char *input, char *str, size_t *a, size_t *b)
 
 char	*fix_input(char *input, t_data *data)
 {
-	char *str;
-	size_t i;
-	size_t j;
+	char	*str;
+	size_t	i;
+	size_t	j;
 
 	str = ft_calloc((ft_strlen(input) + 1) * 2, sizeof(char));
 	check_memory_failure(data, str, NULL, 1);

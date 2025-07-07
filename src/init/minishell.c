@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 18:39:36 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/07/02 11:22:37 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:25:03 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	reset_data(t_data *data)
 
 int	main(int ac, char **av, char **env)
 {
-	t_data data;
+	t_data	data;
 
 	if (ac != 1)
 		return (1);

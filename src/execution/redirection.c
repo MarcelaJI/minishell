@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   redirection.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 18:31:44 by iranieri          #+#    #+#             */
-/*   Updated: 2025/06/28 18:31:45 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:24:12 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

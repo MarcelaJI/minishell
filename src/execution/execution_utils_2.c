@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   execution_utils_2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/29 09:22:11 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/07/06 12:56:23 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:21:29 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	exec_external_cmd(t_data *data, int n)
 	execve(execve_arr[0], execve_arr, env);
 	execve_fail(cmd, execve_arr, env, data);
 }
-
 
 void	alloc_fd_pid_arrays(t_data *data)
 {

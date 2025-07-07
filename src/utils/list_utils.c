@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 14:30:06 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/25 09:28:02 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:27:32 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	node_addfront(t_dlist **list, t_dlist *node)
 
 t_dlist	*newnode(char *str)
 {
-	t_dlist *node;
+	t_dlist	*node;
 
 	node = ft_calloc(sizeof(t_dlist), 1);
 	if (!node)

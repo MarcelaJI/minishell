@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_env_unset.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/21 18:21:14 by iranieri          #+#    #+#             */
-/*   Updated: 2025/06/28 18:21:19 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:09:16 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	ft_unset(t_data *data, int n)
 
 void	ft_env(t_data *data)
 {
-	t_dlist *temp;
-	int fd;
+	t_dlist		*temp;
+	int			fd;
 
 	if (data->cmd_count == 1 && data->out_fds[0])
 		fd = data->out_fds[0];

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_export.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 19:11:44 by iranieri          #+#    #+#             */
-/*   Updated: 2025/07/06 21:56:29 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:18:11 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ void	sort_export_list(char **export_arr)
 	i = 0;
 	while (export_arr[i + 1])
 	{
-		if (ft_strncmp(export_arr[i], export_arr[i + 1], ft_strlen(export_arr[i])) > 0)
+		if (ft_strncmp(export_arr[i], export_arr[i + 1],
+				ft_strlen(export_arr[i])) > 0)
 		{
 			temp = export_arr[i];
 			export_arr[i] = export_arr[i + 1];

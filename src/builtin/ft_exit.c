@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/20 18:21:30 by iranieri          #+#    #+#             */
-/*   Updated: 2025/07/02 10:05:31 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:17:02 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,25 +32,21 @@ int	ft_exit_invalid_params(t_data *data, char **params)
 
 void	ft_exit(t_data *data, int n)
 {
-	char **params;
-	long long code;
+	char		**params;
+	long long	code;
 
 	params = create_exec_array(data, n);
 	if (!params[1])
 		ft_exit_no_params(data, params);
 	if (params[1] && !checkfornum(params[1]))
-	{
-		ft_exit_invalid_params(data, params);
-		return ;
-	}
+		return (ft_exit_invalid_params(data, params));
 	if (params[2])
 	{
 		error("exit: too many arguments", NULL, data);
 		free_str_array(params, 0);
-		builtin_exit(data, 1);
-		return ;
+		return (builtin_exit(data, 1));
 	}
-	if (params[1] && checkfornum(params[1]))
+	if (params[1])
 	{
 		code = ft_atol(params[1]);
 		ft_putendl_fd("exit", 2);

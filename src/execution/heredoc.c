@@ -6,7 +6,7 @@
 /*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 10:30:12 by iranieri          #+#    #+#             */
-/*   Updated: 2025/07/02 11:15:32 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:18:49 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ int	heredoc_check(t_dlist *node, int n)
 
 void	open_heredoc(t_data *data, t_dlist *node, int n)
 {
-	int in_fd;
+	int	in_fd;
 
 	in_fd = 0;
 	node = skip_instructions(node, n);

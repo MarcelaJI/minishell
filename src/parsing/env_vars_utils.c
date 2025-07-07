@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_vars_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 08:48:31 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/25 09:26:58 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:35:01 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ size_t	get_exp_len(char *str, t_data *data)
 	while (str[i])
 	{
 		skip_quoted_single_block(str, &dquote, NULL, &i);
-		if (str[i] == '$' && (!check_invalid_chars_env_var(str[i + 1]) || str[i
-				+ 1] == '?' || str[i + 1] == '$'))
+		if (str[i] == '$' && (!check_invalid_chars_env_var(str[i + 1])
+				|| str[i + 1] == '?' || str[i + 1] == '$'))
 		{
 			get_exp_len_extension(str + i + 1, data, &len);
 			i++;
@@ -61,7 +61,7 @@ int	check_invalid_chars_env_var(char c)
 
 size_t	env_var_name_len(char *str)
 {
-	size_t var_len;
+	size_t	var_len;
 
 	var_len = 0;
 	if (ft_isdigit(str[0]) || str[0] == '?' || str[0] == '$')

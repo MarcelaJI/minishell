@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_vars.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 08:48:28 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/07/02 11:15:01 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:32:46 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	expand_env_vars_loop(char *str, char *exp, char *env_str, t_data *data)
 	{
 		update_double_quote_flag(str, &dquote, &squote, &i);
 		update_single_quote_flag(str, &squote, &dquote, &i);
-		if (str[i] == '$' && (!check_invalid_chars_env_var(str[i + 1]) || str[i
-				+ 1] == '?' || str[i + 1] == '$') && !squote)
+		if (str[i] == '$' && (!check_invalid_chars_env_var(str[i + 1])
+				|| str[i + 1] == '?' || str[i + 1] == '$') && !squote)
 		{
 			env_str = get_env_var_str(str + i + 1, data);
 			if (env_str)
@@ -73,9 +73,9 @@ char	*expand_env_vars(char *str, t_data *data)
 
 char	**convert_env_to_strings(t_data *data)
 {
-	int i;
-	t_dlist *temp;
-	char **env;
+	int		i;
+	t_dlist	*temp;
+	char	**env;
 
 	i = 0;
 	temp = data->env;

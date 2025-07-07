@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   env_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ingjimen <ingjimen@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 11:54:20 by ingjimen          #+#    #+#             */
-/*   Updated: 2025/06/26 11:59:10 by ingjimen         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:24:23 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,8 +103,8 @@ void	update_shlvl(t_dlist *env, t_data *data)
 
 void	create_env(t_data *data, char **env)
 {
-	int i;
-	t_dlist *temp;
+	int		i;
+	t_dlist	*temp;
 
 	i = 0;
 	if (env && env[i])

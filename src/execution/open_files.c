@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   open_files.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iranieri <iranieri@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: ingjimen <ingjimen@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 11:28:25 by iranieri          #+#    #+#             */
-/*   Updated: 2025/06/28 19:43:20 by iranieri         ###   ########.fr       */
+/*   Updated: 2025/07/07 14:20:24 by ingjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ void	open_files_extension(t_data *data, int in_fd, int out_fd, int n)
 
 void	open_files(t_data *data, t_dlist *node, int n)
 {
-	int in_fd;
-	int out_fd;
+	int	in_fd;
+	int	out_fd;
 
 	in_fd = 0;
 	out_fd = 0;
