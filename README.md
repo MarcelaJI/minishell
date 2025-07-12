@@ -135,7 +135,7 @@ make
 
 🧑‍💻 Autoras
 
-ingjimen & iranieri
+ingjimen & iranieri :)
 
 📘 Proyecto realizado en [42 Madrid]
 
