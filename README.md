@@ -1,6 +1,6 @@
 # 🐚 Minishell
 
-Bienvenido a **Minishell**, una shell personalizada programada en C como parte del currículo de la Escuela 42.  
+Bienvenido a **Minishell**, una shell personalizada programada en C como parte del currículo de 42.  
 Este proyecto busca replicar las funcionalidades básicas de una shell real como `bash`, permitiendo ejecutar comandos, redirigir entradas/salidas, gestionar pipes y más.
 
 ---
