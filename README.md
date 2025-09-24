@@ -1,18 +1,23 @@
 # 🐚 Minishell
 
-Bienvenido a **Minishell**, una shell personalizada programada en C como parte del currículo de 42.  
-Este proyecto busca replicar las funcionalidades básicas de una shell real como `bash`, permitiendo ejecutar comandos, redirigir entradas/salidas, gestionar pipes y más.
+Minishell es una shell personalizada desarrollada en C como parte del currículo de 42 Madrid
+. Este proyecto busca replicar algunas de las funcionalidades esenciales de una shell UNIX como bash, permitiendo ejecutar comandos, gestionar redirecciones, pipes, señales, y más, todo desde cero y sin usar system().
 
 ---
 
-## 📌 Objetivos del Proyecto
+## 📌 Objetivos del Proyecto 🎯
 
-- Entender y replicar el funcionamiento de una shell UNIX.
-- Practicar la creación y manejo de procesos (`fork`, `execve`, `wait`).
-- Manejar señales del sistema (Ctrl+C, Ctrl+\...).
-- Trabajar con redirecciones y `pipes`.
-- Implementar comandos internos (**built-ins**).
-- Manipular estructuras de datos como **listas doblemente enlazadas** para gestionar tokens y el entorno.
+- Comprender en profundidad cómo funciona una shell en sistemas UNIX.
+
+- Practicar el manejo de procesos (fork, execve, wait).
+
+- Implementar el control de señales del sistema (ej. Ctrl+C, Ctrl+\).
+
+- Trabajar con redirecciones de entrada/salida y pipelines.
+
+- Desarrollar e integrar comandos internos (built-ins).
+
+- Usar estructuras de datos eficientes como listas doblemente enlazadas para manejar tokens y variables de entorno.
 
 ---
 
@@ -51,7 +56,7 @@ typedef struct s_data {
 
 ```
 
-✅ Built-ins
+✅ Comandos internos (Built-ins)
 
 - echo	
 
@@ -67,15 +72,19 @@ typedef struct s_data {
 
 - exit
 
-🔄 Funciones clave del flujo
+---
+
+
+🔄 Flujo General de Ejecución
 ```
-1. readline()                 // Recoge input del usuario
-2. parse_input()              // Separa input en tokens
+1. readline()                 // Lee el input del usuario
+2. parse_input()              // Tokeniza la entrada
 3. expand_all_tokens()        // Expande variables ($USER, etc.)
 4. execution()                // Ejecuta comandos y maneja procesos
-5. free_all()                 // Limpia 
+5. free_all()                 // Limpia toda la memoria usada al terminar
 ```
-estructuras al terminar
+
+---
 
 🧪 Ejemplos de uso
 
@@ -96,29 +105,41 @@ EOF
 Hola
 ```
 
+---
 
-🧩 Bonus Implementados (si aplican)
-✅ Soporte para heredoc (<<)
 
-✅ Manejo de comillas simples y dobles
 
-✅ Expansión de variables ($VAR)
+🧩 Bonus Implementados
 
-✅ Soporte para múltiples pipes
+- ✅ Soporte para heredoc (<<)
 
-✅ Soporte parcial de redirecciones >, >>, <
+- ✅ Manejo de comillas simples y dobles
+
+- ✅ Expansión de variables ($VAR)
+
+- ✅ Soporte para múltiples pipes
+
+- ✅ Soporte parcial de redirecciones >, >>, <
+
+---
 
 📁 Compilación
+
 ```
 make
 ./minishell
 ```
 
+---
 
-🧷 Notas
+
+🧷 Notas Adicionales
+
 Este proyecto fue una experiencia intensa para aprender a bajo nivel cómo funciona una shell real.
 
 No tiene dependencias externas aparte de la librería readline y está escrito íntegramente en C.
+
+---
 
 
 🧪 ¿Quieres probarlo?
@@ -137,7 +158,7 @@ make
 
 ingjimen & iranieri :)
 
-📘 Proyecto realizado en [42 Madrid]
+📘 Proyecto realizado en [42 Madrid](https://www.42madrid.com/)
 
 ---
 
